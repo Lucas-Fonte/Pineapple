@@ -1,7 +1,7 @@
 module.exports = {
   up: queryInterface => {
     return queryInterface.bulkInsert(
-      'raw_materials',
+      'materials',
       [
         {
           raw_material: 'CHAPA',
@@ -30,6 +30,6 @@ module.exports = {
   },
 
   down: queryInterface => {
-    return queryInterface.bulkDelete('raw_materials', null, {});
+    return queryInterface.bulkDelete('materials', null, {});
   }
 };

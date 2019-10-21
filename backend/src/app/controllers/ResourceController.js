@@ -10,13 +10,7 @@ class ResourceController {
   }
 
   async store(req, res) {
-    const { resource } = req.body;
-
-    const resourceInput = await Resource.create({
-      resource
-    });
-
-    return res.json(resourceInput);
+    return res.json({ ok: true });
   }
 }
 

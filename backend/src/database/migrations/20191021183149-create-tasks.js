@@ -44,7 +44,7 @@ module.exports = {
       },
       raw_material_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'raw_materials', key: 'id' },
+        references: { model: 'materials', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
         allowNull: true
