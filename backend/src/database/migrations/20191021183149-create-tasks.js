@@ -24,7 +24,7 @@ module.exports = {
         references: { model: 'resources', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL',
-        allowNull: false
+        allowNull: true
       },
       task_action: {
         type: Sequelize.STRING,
