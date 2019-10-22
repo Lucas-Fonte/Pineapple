@@ -26,6 +26,14 @@ module.exports = {
           task_able_resource: false,
           created_at: new Date(),
           updated_at: new Date()
+        },
+        {
+          resource_field: 'SERIGRAFIA',
+          resource_tool: 'MANUAL 1',
+          resource_cost: 450,
+          task_able_resource: true,
+          created_at: new Date(),
+          updated_at: new Date()
         }
       ],
       {}
