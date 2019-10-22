@@ -10,43 +10,41 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 
 export default function Dashboard() {
-  const [tasks, setTasks] = useState([]);
+  const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    async function loadTasks() {
-      const response = await api.get('tasks');
+    async function loadProjects() {
+      const response = await api.get('projects');
 
       const { data } = response;
-      const task = data.map(taskInfo => ({
-        id: taskInfo.id,
-        task: taskInfo.task,
-        date: taskInfo.createdAt,
-        resource: taskInfo.resource
+      const projectWithTasks = data.map(projectInfo => ({
+        project: projectInfo.project,
+        tasks: projectInfo.tasks
       }));
 
-      setTasks(task);
+      setProjects(projectWithTasks);
     }
 
-    loadTasks();
-  }, [setTasks]);
+    loadProjects();
+  }, [setProjects]);
 
   return (
     <Container>
       <header>
-        <strong>Minhas Tasks</strong>
+        <strong>Meus projetos</strong>
         <aside>
-          <Link to="/newtask">
+          <Link to="/newproject">
             <div>
               <FaPlus size={12} color="#fff" />
-              <span>Nova Task</span>
+              <span>Novo Projeto</span>
             </div>
           </Link>
         </aside>
       </header>
 
       <ul>
-        {tasks.map(task => (
-          <Card key={task.id} data={task} />
+        {projects.map(project => (
+          <Card key={project.project.id} data={project} />
         ))}
       </ul>
     </Container>

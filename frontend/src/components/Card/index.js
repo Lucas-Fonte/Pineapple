@@ -9,9 +9,9 @@ export default function Card({ data }) {
   return (
     <Container style={{ height: status ? 100 : 50 }}>
       <CardContent>
-        <strong>{data.task}</strong>
+        <strong>{`${data.project.product_owner} ${data.project.product} ${data.project.product_detail}`}</strong>
         <aside>
-          <span>{data.date}</span>
+          <span>Quantidade: {data.project.product_quantity}</span>
           <div className="details">
             <MdChevronRight
               size={24}
@@ -22,8 +22,8 @@ export default function Card({ data }) {
         </aside>
       </CardContent>
       <Extra style={{ display: status ? 'flex' : 'none' }}>
-        <span>{data.resource.resource}</span>
-        <span>{data.resource.createdAt}</span>
+        <span>{data.tasks[0].resource.resource_field}</span>
+        <span>{data.tasks[1].resource.resource_field}</span>
       </Extra>
     </Container>
   );
