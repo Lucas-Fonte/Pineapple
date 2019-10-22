@@ -1,12 +1,12 @@
 import Sequelize from 'sequelize';
 
 import Task from '../app/models/Task';
-import RawMaterial from '../app/models/RawMaterial';
+import Material from '../app/models/Material';
 import Resource from '../app/models/Resource';
 
 import databaseConfig from '../config/database';
 
-const models = [RawMaterial, Resource, Task];
+const models = [Material, Resource, Task];
 
 class Database {
   constructor() {

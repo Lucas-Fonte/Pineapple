@@ -1,10 +1,10 @@
-import RawMaterial from '../models/RawMaterial';
+import Material from '../models/Material';
 
 class RawMaterialController {
   async index(req, res) {
-    const raw_materials = await RawMaterial.findAll();
+    const materials = await Material.findAll();
 
-    return res.json(raw_materials);
+    return res.json(materials);
   }
 
   async store(req, res) {

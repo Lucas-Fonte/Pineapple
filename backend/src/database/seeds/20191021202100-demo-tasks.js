@@ -12,7 +12,7 @@ module.exports = {
           task_start: '2019-11-01 10:00:00',
           task_end: '2019-11-01 11:00:00',
           task_resource: 1,
-          raw_material_id: 1,
+          material_id: 1,
           task_result: 'CAPA',
           task_input: 10,
           task_loss: 0,

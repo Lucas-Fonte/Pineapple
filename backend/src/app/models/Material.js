@@ -1,6 +1,6 @@
 import Sequelize, { Model } from 'sequelize';
 
-class RawMaterial extends Model {
+class Material extends Model {
   static init(sequelize) {
     super.init(
       {
@@ -16,4 +16,4 @@ class RawMaterial extends Model {
   }
 }
 
-export default RawMaterial;
+export default Material;

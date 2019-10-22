@@ -26,11 +26,11 @@ class Task extends Model {
   static associate(models) {
     this.belongsTo(models.Resource, {
       foreignKey: 'resource_id',
-      as: 'resources'
+      as: 'resource'
     });
-    this.belongsTo(models.RawMaterial, {
-      foreignKey: 'raw_material_id',
-      as: 'raw-materials'
+    this.belongsTo(models.Material, {
+      foreignKey: 'material_id',
+      as: 'material'
     });
   }
 }

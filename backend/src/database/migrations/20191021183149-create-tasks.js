@@ -42,7 +42,7 @@ module.exports = {
         type: Sequelize.INTEGER,
         allowNull: false
       },
-      raw_material_id: {
+      material_id: {
         type: Sequelize.INTEGER,
         references: { model: 'materials', key: 'id' },
         onUpdate: 'CASCADE',

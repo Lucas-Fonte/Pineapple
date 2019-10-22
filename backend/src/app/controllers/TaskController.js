@@ -1,6 +1,6 @@
 import Task from '../models/Task';
 import Resource from '../models/Resource';
-// import RawMaterial from '../models/RawMaterial';
+import Material from '../models/Material';
 
 class TaskController {
   async index(req, res) {
@@ -10,11 +10,11 @@ class TaskController {
         {
           model: Resource,
           as: 'resource'
+        },
+        {
+          model: Material,
+          as: 'material'
         }
-        // {
-        //   model: Raw_Material,
-        //   as: 'raw_material'
-        // }
       ]
     });
 
