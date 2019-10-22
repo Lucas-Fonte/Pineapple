@@ -1,6 +1,6 @@
 import Material from '../models/Material';
 
-class RawMaterialController {
+class MaterialController {
   async index(req, res) {
     const materials = await Material.findAll();
 
@@ -12,4 +12,4 @@ class RawMaterialController {
   }
 }
 
-export default new RawMaterialController();
+export default new MaterialController();

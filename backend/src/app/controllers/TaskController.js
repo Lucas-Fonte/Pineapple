@@ -22,24 +22,40 @@ class TaskController {
   }
 
   async store(req, res) {
-    return res.json({ ok: true });
+    const {
+      task_owner,
+      product,
+      product_detail,
+      resource_id,
+      task_action,
+      task_start,
+      task_end,
+      task_resource,
+      task_result,
+      task_input,
+      task_loss,
+      task_output,
+      raw_material_id
+    } = req.body;
+
+    const task = await Task.create({
+      task_owner,
+      product,
+      product_detail,
+      resource_id,
+      task_action,
+      task_start,
+      task_end,
+      task_resource,
+      task_result,
+      task_input,
+      task_loss,
+      task_output,
+      raw_material_id
+    });
+
+    return res.json(task);
   }
-  // async store(req, res) {
-  //   const {
-  //     task_owner,
-  //     product,
-  //     product_detail,
-  //     resource_id,
-  //     task_action,
-  //     task_start,
-  //     task_end,
-  //     task_resource,
-  //     task_result,
-  //     task_input,
-  //     task_loss,
-  //     task_output,
-  //     raw_material_id
-  //   } = req.body;
 
   //   const resource = await Resource.findOne({
   //     where: {

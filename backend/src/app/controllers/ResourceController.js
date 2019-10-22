@@ -10,7 +10,21 @@ class ResourceController {
   }
 
   async store(req, res) {
-    return res.json({ ok: true });
+    const {
+      resource_field,
+      resource_tool,
+      resource_cost,
+      task_able_resource
+    } = req.body;
+
+    const resource = await Resource.create({
+      resource_field,
+      resource_tool,
+      resource_cost,
+      task_able_resource
+    });
+
+    return res.json(resource);
   }
 }
 
