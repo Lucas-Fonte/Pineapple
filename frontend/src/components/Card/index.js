@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 
 import { MdChevronRight } from 'react-icons/md';
 import { Container, CardContent, Extra } from './styles';
+import Task from '../Task';
 
 export default function Card({ data }) {
   const [status, setStatus] = useState(false);
@@ -22,8 +23,9 @@ export default function Card({ data }) {
         </aside>
       </CardContent>
       <Extra style={{ display: status ? 'flex' : 'none' }}>
-        <span>{data.tasks[0].resource.resource_field}</span>
-        <span>{data.tasks[1].resource.resource_field}</span>
+        {data.tasks.map(task => (
+          <Task key={task.id} data={task} />
+        ))}
       </Extra>
     </Container>
   );
