@@ -7,6 +7,16 @@ export const Container = styled.div`
   margin: 50px auto;
   display: flex;
   flex-direction: column;
+  animation: fade 0.7s ease-in-out;
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
   header {
     display: flex;
     justify-content: space-between;

@@ -4,6 +4,13 @@ import Material from '../models/Material';
 
 class TaskController {
   async index(req, res) {
+    const { id } = req.query;
+
+    if (id) {
+      const task = await Task.findByPk(id);
+      res.json(task);
+    }
+
     const tasks = await Task.findAll({
       order: ['id'],
       include: [
