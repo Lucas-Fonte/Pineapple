@@ -2,8 +2,23 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background-image: url('https://www.wallpaperup.com/uploads/wallpapers/2013/12/02/182291/76c5aef80966af99c675d0cfe5ffd13c-700.jpg');
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+`;
+
+export const Background = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-image: linear-gradient(#ff9d2f, #ff6126);
+  transform: skewY(-6deg);
+  transform-origin: top left;
+  z-index: -1;
+`;
+
+export const Content = styled.div`
+  position: relative;
+  overflow: hidden;
 `;

@@ -16,7 +16,7 @@ export default function Card({ data }) {
           <div className="details">
             <MdChevronRight
               size={24}
-              color="#FFF"
+              color="#000"
               onClick={() => (!status ? setStatus(true) : setStatus(false))}
             />
           </div>

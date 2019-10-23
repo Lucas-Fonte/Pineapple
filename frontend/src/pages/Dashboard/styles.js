@@ -35,10 +35,10 @@ export const Container = styled.div`
         padding: 12px;
         border-radius: 4px;
         border: 0;
-        background: #ff5c5c;
+        background: #666;
         transition: background 0.2s;
         :hover {
-          background: ${darken(0.07, '#ff5c5c')};
+          background: ${darken(0.07, '#666')};
         }
         span {
           display: block;
