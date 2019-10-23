@@ -8,7 +8,7 @@ class MaterialController {
   }
 
   async store(req, res) {
-    return res.json({ ok: true });
+    return res.json({ ok: 'super true'});
   }
 }
 

@@ -21,15 +21,13 @@ export default function Task({ match }) {
   return (
     <Container>
       <div>
-        <h1>{task.product}</h1>
-        <span>{task.product_detail}</span>
-        <span>{task.action}</span>
-        <span>{task.task_start}</span>
-        <span>{task.task_end}</span>
-        <span>{task.task_result}</span>
-        <span>{task.task_input}</span>
-        <span>{task.task_loss}</span>
-        <span>{task.task_output}</span>
+        {Object.keys(task).map(key =>
+          key === 'resource' || key === 'material' ? (
+            Object.keys(task[key]).map(prop => <h1>{key[prop]}</h1>)
+          ) : (
+            <span>{task[key]}</span>
+          )
+        )}
       </div>
     </Container>
   );

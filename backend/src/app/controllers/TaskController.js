@@ -7,7 +7,18 @@ class TaskController {
     const { id } = req.query;
 
     if (id) {
-      const task = await Task.findByPk(id);
+      const task = await Task.findByPk(id, {
+        include: [
+          {
+            model: Resource,
+            as: 'resource'
+          },
+          {
+            model: Material,
+            as: 'material'
+          }
+        ]
+      });
       res.json(task);
     }
 
