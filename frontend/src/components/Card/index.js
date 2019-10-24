@@ -10,9 +10,7 @@ export default function Card({ data }) {
   return (
     <Container
       style={{
-        height: status ? 100 : 50,
-        width: status ? '50%' : '100%',
-        transform: 'translate(50px);'
+        height: status ? 100 : 50
       }}
     >
       <CardContent>
