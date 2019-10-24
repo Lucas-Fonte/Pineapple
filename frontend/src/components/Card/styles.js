@@ -7,7 +7,7 @@ export const Container = styled.div`
   border-radius: 4px;
   background: #fff;
   box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.3);
-  transition: height 0.5s;
+  transition: height 0.5s, width 0.5s, translate 0.5s;
 `;
 
 export const CardContent = styled.li`

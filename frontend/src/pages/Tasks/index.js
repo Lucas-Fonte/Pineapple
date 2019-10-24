@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from 'react';
 import api from '../../services/api';
 
-import Card from '../../components/Card';
 import { Container } from './styles';
 
 export default function Task({ match }) {
