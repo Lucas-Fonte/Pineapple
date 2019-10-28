@@ -12,22 +12,23 @@ import api from '../../services/api';
 
 export default function Dashboard() {
   const [projects, setProjects] = useState([]);
+  const [initial, setInitial] = useState(0);
+
+  async function loadProjects() {
+    const response = await api.get('projects');
+    const { data } = response;
+
+    const projectWithTasks = data.map(projectInfo => ({
+      project: projectInfo.project,
+      tasks: projectInfo.tasks
+    }));
+
+    setProjects(projectWithTasks);
+  }
 
   useEffect(() => {
-    async function loadProjects() {
-      const response = await api.get('projects');
-
-      const { data } = response;
-      const projectWithTasks = data.map(projectInfo => ({
-        project: projectInfo.project,
-        tasks: projectInfo.tasks
-      }));
-
-      setProjects(projectWithTasks);
-    }
-
     loadProjects();
-  }, [setProjects]);
+  }, [initial]);
 
   return (
     <Container>
