@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  background: black;
   padding: 0 20px;
 `;
 
@@ -48,14 +47,14 @@ export const Profile = styled.div`
       display: block;
       margin-top: 2px;
       font-size: 12px;
-      color: #999;
+      color: #fff;
     }
   }
   button {
     width: 60px;
     margin-left: 20px;
     height: 35px;
-    background: #ff5c5c;
+    background: #666;
     font-size: 12px;
     font-weight: bold;
     color: #fff;
@@ -65,7 +64,7 @@ export const Profile = styled.div`
     transition: background 0.2s;
 
     &:hover {
-      background: ${darken(0.07, '#ff5c5c')};
+      background: ${darken(0.07, '#666')};
     }
   }
 `;

@@ -6,6 +6,7 @@ import { FaPlus } from 'react-icons/fa';
 
 import { Container } from './styles';
 
+import Slide from '../../components/Slides';
 import Card from '../../components/Card';
 import api from '../../services/api';
 
@@ -41,7 +42,7 @@ export default function Dashboard() {
           </Link>
         </aside>
       </header>
-
+      <Slide />
       <ul>
         {projects.map(project => (
           <Card key={project.project.id} data={project} />

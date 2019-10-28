@@ -8,7 +8,11 @@ import Task from '../Task';
 export default function Card({ data }) {
   const [status, setStatus] = useState(false);
   return (
-    <Container style={{ height: status ? 100 : 50 }}>
+    <Container
+      style={{
+        height: status ? 100 : 50
+      }}
+    >
       <CardContent>
         <strong>{`${data.project.product_owner} ${data.project.product} ${data.project.product_detail}`}</strong>
         <aside>
@@ -16,7 +20,7 @@ export default function Card({ data }) {
           <div className="details">
             <MdChevronRight
               size={24}
-              color="#FFF"
+              color="#000"
               onClick={() => (!status ? setStatus(true) : setStatus(false))}
             />
           </div>

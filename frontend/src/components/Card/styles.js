@@ -5,7 +5,8 @@ export const Container = styled.div`
   flex-direction: column;
   padding: 10px;
   border-radius: 4px;
-  background: rgba(0, 0, 0, 0.6);
+  background: #fff;
+  box-shadow: 0 10px 6px -6px rgba(0, 0, 0, 0.3);
   transition: height 0.5s;
 `;
 
@@ -18,7 +19,7 @@ export const CardContent = styled.li`
   opacity: ${props => (props.past ? 0.4 : 1)};
   strong {
     display: block;
-    color: #fff;
+    color: #000;
     font-size: 16px;
   }
   aside {
@@ -26,7 +27,7 @@ export const CardContent = styled.li`
     align-items: center;
     span {
       display: block;
-      color: #fff;
+      color: #000;
       margin-right: 30px;
     }
     button {
@@ -41,9 +42,7 @@ export const CardContent = styled.li`
 `;
 export const Extra = styled.div`
   flex-direction: column;
-
   animation: fade 1s ease-in-out;
-  color: #fff;
   font-size: bold;
 
   @keyframes fade {
