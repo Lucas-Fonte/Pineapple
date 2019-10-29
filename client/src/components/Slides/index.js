@@ -72,7 +72,7 @@ export default function FullWidthTabs() {
     setT(projects.map(project => project.tasks.map(task => task.task_action)));
 
     loadProjects();
-  }, [projects, setProjects]);
+  }, []);
 
   const classes = useStyles();
   const theme = useTheme();
