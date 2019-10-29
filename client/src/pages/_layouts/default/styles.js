@@ -12,7 +12,7 @@ export const Background = styled.div`
   left: 0;
   width: 100%;
   height: 50%;
-  background-image: linear-gradient(#ff9d2f, #ff6126);
+  background: #000 ;
   transform: skewY(-6deg);
   transform-origin: top left;
   z-index: -1;
