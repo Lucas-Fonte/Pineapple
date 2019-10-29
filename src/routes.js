@@ -9,7 +9,7 @@ import MaterialController from './app/controllers/MaterialController';
 const routes = new Router();
 
 routes.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
 routes.get('/api/tasks', TaskController.index);
