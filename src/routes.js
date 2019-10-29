@@ -7,16 +7,16 @@ import MaterialController from './app/controllers/MaterialController';
 
 const routes = new Router();
 
-routes.get('/tasks', TaskController.index);
-routes.post('/tasks', TaskController.store);
+routes.get('/api/tasks', TaskController.index);
+routes.post('/api/tasks', TaskController.store);
 
-routes.get('/resources', ResourceController.index);
-routes.post('/resources', ResourceController.store);
+routes.get('/api/resources', ResourceController.index);
+routes.post('/api/resources', ResourceController.store);
 
-routes.get('/materials', MaterialController.index);
+routes.get('/api/materials', MaterialController.index);
 routes.post('/materials', MaterialController.store);
 
-routes.get('/projects', ProjectController.index);
-routes.post('/projects', ProjectController.store);
+routes.get('/api/projects', ProjectController.index);
+routes.post('/api/projects', ProjectController.store);
 
 export default routes;
