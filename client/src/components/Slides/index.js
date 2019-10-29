@@ -58,7 +58,7 @@ export default function FullWidthTabs() {
 
   useEffect(() => {
     async function loadProjects() {
-      const response = await api.get('projects');
+      const response = await api.get('api/projects');
 
       const { data } = response;
       const projectWithTasks = data.map(projectInfo => ({

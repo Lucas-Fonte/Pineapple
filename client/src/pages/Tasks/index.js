@@ -9,7 +9,7 @@ export default function Task({ match }) {
 
   useEffect(() => {
     async function loadTask() {
-      const response = await api.get(`tasks?id=${match.params.taskId}`);
+      const response = await api.get(`/api/tasks?id=${match.params.taskId}`);
       const { data } = response;
 
       setTask(data);
