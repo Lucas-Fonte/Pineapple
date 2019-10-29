@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../../services/api';
+import Card from '../../../components/Card';
 
 import { Container } from './styles';
 
@@ -27,9 +28,23 @@ export default function All_Materials() {
         {materials.map(item => (
           <li>
             <br />
-            <Link to="/Materials" style={{ color: '#fff' }}>
-              Raw Material: {item.raw_material}
-            </Link>
+            <Card>
+              <Link to="/Materials" style={{ color: '#fff' }}>
+                Raw Material: {item.raw_material}
+              </Link>
+            </Card>
+            <br />
+            <Card>
+              <Link to="/Materials" style={{ color: '#fff' }}>
+                Raw Material: {item.raw_material}
+              </Link>
+            </Card>
+            <br />
+            <Card>
+              <Link to="/Materials" style={{ color: '#fff' }}>
+                Core: {item.raw_material_core}
+              </Link>
+            </Card>
             <br />
             <Link to="/Materials" style={{ color: '#fff' }}>
               Core: {item.raw_material_core}
