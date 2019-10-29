@@ -7,6 +7,9 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
 
+  h1 {
+    color:#fff;
+  }
   div {
     display: flex;
     flex-direction: column;

@@ -21,13 +21,7 @@ export default function Task({ match }) {
   return (
     <Container>
       <div>
-        {Object.keys(task).map(key =>
-          key === 'resource' || key === 'material' ? (
-            Object.keys(task[key]).map(prop => <h1>{key[prop]}</h1>)
-          ) : (
-            <span>{task[key]}</span>
-          )
-        )}
+        <h1>Task</h1>
       </div>
     </Container>
   );
