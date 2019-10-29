@@ -2,6 +2,13 @@ import Resource from '../models/Resource';
 
 class ResourceController {
   async index(req, res) {
+    const { id } = req.query;
+
+    if (id) {
+      const resource = await Resource.findByPk(id);
+      res.json(resource);
+    }
+
     const resources = await Resource.findAll({
       order: ['id']
     });

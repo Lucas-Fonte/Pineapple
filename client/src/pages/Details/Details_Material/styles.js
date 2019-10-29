@@ -6,17 +6,16 @@ export const Container = styled.div`
   margin: 50px auto;
   display: flex;
   flex-direction: column;
-  animation: fade 0.7s ease-in-out;
 
   h1 {
     color: #fff;
   }
-  @keyframes fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
+  div {
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 4px;
   }
 `;
