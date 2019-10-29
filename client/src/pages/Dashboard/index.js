@@ -12,7 +12,6 @@ import api from '../../services/api';
 
 export default function Dashboard() {
   const [projects, setProjects] = useState([]);
-  const [initial, setInitial] = useState(0);
 
   async function loadProjects() {
     const response = await api.get('projects');
@@ -28,7 +27,7 @@ export default function Dashboard() {
 
   useEffect(() => {
     loadProjects();
-  }, [initial]);
+  }, []);
 
   return (
     <Container>
