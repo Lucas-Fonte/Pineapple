@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import path from 'path';
 
 import ProjectController from './app/controllers/ProjectController';
 import TaskController from './app/controllers/TaskController';
@@ -6,6 +7,10 @@ import ResourceController from './app/controllers/ResourceController';
 import MaterialController from './app/controllers/MaterialController';
 
 const routes = new Router();
+
+routes.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+});
 
 routes.get('/api/tasks', TaskController.index);
 routes.post('/api/tasks', TaskController.store);
