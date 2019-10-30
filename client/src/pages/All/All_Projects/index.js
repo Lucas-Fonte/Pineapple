@@ -27,6 +27,7 @@ export default function Dashboard() {
 
   return (
     <Container>
+      <h1>Projects</h1>
       <ul>
         {projects.map(item => (
           <li>
