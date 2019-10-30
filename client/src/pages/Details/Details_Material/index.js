@@ -7,7 +7,7 @@ import { Container } from './styles';
 export default function Details_Material({ match }) {
   useEffect(() => {
     async function loadMaterial() {
-      const response = await api.get(`/materials?id=${match.params.taskId}`);
+      const response = await api.get(`api/materials?id=${match.params.taskId}`);
       const { data } = response;
 
       console.log(data);

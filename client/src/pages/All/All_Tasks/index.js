@@ -10,7 +10,7 @@ export default function All_Tasks() {
 
   useEffect(() => {
     async function loadTasks() {
-      const response = await api.get(`/tasks`);
+      const response = await api.get(`tasks`);
       const { data } = response;
 
       setTasks(data);

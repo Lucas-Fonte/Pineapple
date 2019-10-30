@@ -7,7 +7,7 @@ import { Container } from './styles';
 export default function Details_Resource({ match }) {
   useEffect(() => {
     async function loadResource() {
-      const response = await api.get(`/resources?id=${match.params.taskId}`);
+      const response = await api.get(`api/resources?id=${match.params.taskId}`);
       const { data } = response;
 
       console.log(data);

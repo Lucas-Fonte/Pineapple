@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../../services/api';
+import Card from '../../../components/Card';
 
 import { Container } from './styles';
 
@@ -10,7 +11,7 @@ export default function All_Materials() {
 
   useEffect(() => {
     async function loadMaterials() {
-      const response = await api.get(`/materials`);
+      const response = await api.get(`materials`);
       const { data } = response;
 
       setMaterials(data);
@@ -22,26 +23,25 @@ export default function All_Materials() {
 
   return (
     <Container>
-      <div>
-        <h1>All Materials</h1>
+      <h1>All Materials</h1>
+      <ul>
         {materials.map(item => (
-          <li>
-            <br />
-            <Link to="/Materials" style={{ color: '#fff' }}>
+          <Card key={item}>
+            <Link to="/materials" style={{ color: '#000' }}>
               Raw Material: {item.raw_material}
             </Link>
             <br />
-            <Link to="/Materials" style={{ color: '#fff' }}>
+            <Link to="/materials" style={{ color: '#000' }}>
               Core: {item.raw_material_core}
             </Link>
             <br />
-            <Link to="/Materials" style={{ color: '#fff' }}>
+            <Link to="/materials" style={{ color: '#000' }}>
               Cost: {item.raw_material_core_cost}
             </Link>
             <br />
-          </li>
+          </Card>
         ))}
-      </div>
+      </ul>
     </Container>
   );
 }
