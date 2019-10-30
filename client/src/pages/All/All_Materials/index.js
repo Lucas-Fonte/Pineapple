@@ -11,7 +11,7 @@ export default function All_Materials() {
 
   useEffect(() => {
     async function loadMaterials() {
-      const response = await api.get(`materials`);
+      const response = await api.get(`api/materials`);
       const { data } = response;
 
       setMaterials(data);
