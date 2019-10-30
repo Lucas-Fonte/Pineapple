@@ -8,6 +8,9 @@ export const Container = styled.div`
   flex-direction: column;
   animation: fade 0.7s ease-in-out;
 
+  h1 {
+    color: #fff;
+  }
   ul {
     color: #fff;
   }
