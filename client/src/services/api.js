@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: process.env.APP_URL
+  baseURL: process.env.APP_URL || 'http://localhost:3333/'
 });
 
 export default api;
