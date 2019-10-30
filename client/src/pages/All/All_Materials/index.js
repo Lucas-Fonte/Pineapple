@@ -11,7 +11,7 @@ export default function All_Materials() {
 
   useEffect(() => {
     async function loadMaterials() {
-      const response = await api.get(`api/materials`);
+      const response = await api.get(`materials`);
       const { data } = response;
 
       setMaterials(data);
@@ -23,40 +23,25 @@ export default function All_Materials() {
 
   return (
     <Container>
-      <div>
-        <h1>All Materials</h1>
+      <h1>All Materials</h1>
+      <ul>
         {materials.map(item => (
-          <li>
+          <Card key={item}>
+            <Link to="/materials" style={{ color: '#000' }}>
+              Raw Material: {item.raw_material}
+            </Link>
             <br />
-            <Card>
-              <Link to="/Materials" style={{ color: '#fff' }}>
-                Raw Material: {item.raw_material}
-              </Link>
-            </Card>
-            <br />
-            <Card>
-              <Link to="/Materials" style={{ color: '#fff' }}>
-                Raw Material: {item.raw_material}
-              </Link>
-            </Card>
-            <br />
-            <Card>
-              <Link to="/Materials" style={{ color: '#fff' }}>
-                Core: {item.raw_material_core}
-              </Link>
-            </Card>
-            <br />
-            <Link to="/Materials" style={{ color: '#fff' }}>
+            <Link to="/materials" style={{ color: '#000' }}>
               Core: {item.raw_material_core}
             </Link>
             <br />
-            <Link to="/Materials" style={{ color: '#fff' }}>
+            <Link to="/materials" style={{ color: '#000' }}>
               Cost: {item.raw_material_core_cost}
             </Link>
             <br />
-          </li>
+          </Card>
         ))}
-      </div>
+      </ul>
     </Container>
   );
 }

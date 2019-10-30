@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [projects, setProjects] = useState([]);
 
   async function loadProjects() {
-    const response = await api.get('api/projects');
+    const response = await api.get('projects');
     const { data } = response;
 
     const projectsOverview = data.map(projectOverview => ({

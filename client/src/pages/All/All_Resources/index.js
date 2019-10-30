@@ -10,7 +10,7 @@ export default function All_Resources() {
 
   useEffect(() => {
     async function loadResources() {
-      const response = await api.get(`api/resources`);
+      const response = await api.get(`resources`);
       const { data } = response;
 
       setResources(data);
