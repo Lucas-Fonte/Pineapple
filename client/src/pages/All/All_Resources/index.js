@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../../services/api';
 
+import Card from '../../../components/Card';
 import { Container } from './styles';
 
 export default function All_Resources() {
@@ -22,26 +23,25 @@ export default function All_Resources() {
 
   return (
     <Container>
-      <div>
-        <h1>All Resources</h1>
+      <h1>All Resources</h1>
+      <ul>
         {resources.map(item => (
-          <li>
-            <br />
-            <Link to="/resources" style={{ color: '#fff' }}>
+          <Card>
+            <Link to="/resources" style={{ color: '#000' }}>
               Resource: {item.resource_field}
             </Link>
             <br />
-            <Link to="/resources" style={{ color: '#fff' }}>
+            <Link to="/resources" style={{ color: '#000' }}>
               Tool: {item.resource_tool}
             </Link>
             <br />
-            <Link to="/resources" style={{ color: '#fff' }}>
+            <Link to="/resources" style={{ color: '#000' }}>
               Cost: {item.resource_cost}
             </Link>
             <br />
-          </li>
+          </Card>
         ))}
-      </div>
+      </ul>
     </Container>
   );
 }
