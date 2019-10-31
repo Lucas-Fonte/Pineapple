@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import { Container, Content, Profile } from './styles';
 
 export default function Header() {
@@ -17,9 +16,12 @@ export default function Header() {
           <Profile>
             <div>
               <strong>Confetti</strong>
-              <Link to="/dashboard">Meu Perfil</Link>
+              <Link to="/profile">Meu Perfil</Link>
             </div>
-            <button type="button">Sair</button>
+            <img
+              alt="user"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ1NZ9j23-MqH_HlZMc81olN4WCzgJ8OgzJ93rUHY5HNJVN6jM&s"
+            />
           </Profile>
         </aside>
       </Content>
