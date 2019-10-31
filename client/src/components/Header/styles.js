@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { darken } from 'polished';
 
 export const Container = styled.div`
   padding: 0 20px;
@@ -50,21 +49,14 @@ export const Profile = styled.div`
       color: #fff;
     }
   }
-  button {
-    width: 60px;
-    margin-left: 20px;
+  img {
+    vertical-align: middle;
+    width: 35px;
     height: 35px;
-    background: #666;
-    font-size: 12px;
-    font-weight: bold;
-    color: #fff;
-    border: 0;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: background 0.2s;
-
-    &:hover {
-      background: ${darken(0.07, '#666')};
-    }
+    border-radius: 50%;
   }
+`;
+
+export const Toggle = styled.div`
+  cursor: pointer;
 `;
