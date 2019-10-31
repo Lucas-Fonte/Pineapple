@@ -30,15 +30,12 @@ export default function All_Tasks() {
             <Link to="/tasks" style={{ color: '#000' }}>
               {item.task_action}
             </Link>
-            <br />
             <Link to="/resources" style={{ color: '#000' }}>
               Resource: {item.resource.resource_field}
             </Link>
-            <br />
             <Link to="/materials" style={{ color: '#000' }}>
               Material: {item.material.raw_material}
             </Link>
-            <br />
           </Card>
         ))}
       </ul>

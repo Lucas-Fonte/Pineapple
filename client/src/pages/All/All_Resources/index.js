@@ -30,15 +30,12 @@ export default function All_Resources() {
             <Link to="/resources" style={{ color: '#000' }}>
               Resource: {item.resource_field}
             </Link>
-            <br />
             <Link to="/resources" style={{ color: '#000' }}>
               Tool: {item.resource_tool}
             </Link>
-            <br />
             <Link to="/resources" style={{ color: '#000' }}>
               Cost: {item.resource_cost}
             </Link>
-            <br />
           </Card>
         ))}
       </ul>
