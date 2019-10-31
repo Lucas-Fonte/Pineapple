@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Container } from './styles';
 
+import Card from '../../../components/Card';
 import api from '../../../services/api';
 
 export default function Dashboard() {
@@ -30,11 +31,11 @@ export default function Dashboard() {
       <h1>Projects</h1>
       <ul>
         {projects.map(item => (
-          <li>
-            <Link to="/tasks" style={{ color: '#fff' }}>
+          <Card>
+            <Link to="/tasks" style={{ color: '#000' }}>
               {item.project.product} {item.project.product_detail}
             </Link>
-          </li>
+          </Card>
         ))}
       </ul>
     </Container>
