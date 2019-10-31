@@ -30,15 +30,12 @@ export default function All_Materials() {
             <Link to="/materials" style={{ color: '#000' }}>
               Raw Material: {item.raw_material}
             </Link>
-            <br />
             <Link to="/materials" style={{ color: '#000' }}>
               Core: {item.raw_material_core}
             </Link>
-            <br />
             <Link to="/materials" style={{ color: '#000' }}>
               Cost: {item.raw_material_core_cost}
             </Link>
-            <br />
           </Card>
         ))}
       </ul>
