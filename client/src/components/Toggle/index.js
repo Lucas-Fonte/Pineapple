@@ -66,6 +66,11 @@ export default function Toggle() {
             <h1>Materials</h1>
           </Link>
         </ListItem>
+        <ListItem>
+          <Link to="/new/resource" style={{ color: '#000' }}>
+            <h1>New Resource</h1>
+          </Link>
+        </ListItem>
       </List>
     </div>
   );
