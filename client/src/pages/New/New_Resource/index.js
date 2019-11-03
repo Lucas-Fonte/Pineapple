@@ -1,21 +1,9 @@
 import React from 'react';
-import { Form, Input, Select, Check } from '@rocketseat/unform';
+import { Form, Input, Select } from '@rocketseat/unform';
+import { withStyles } from '@material-ui/core/styles';
+import Switch from '@material-ui/core/Switch';
 import * as Yup from 'yup';
-import { makeStyles } from '@material-ui/core/styles';
-import TextField from '@material-ui/core/TextField';
-import { Container } from './styles';
-
-const useStyles = makeStyles(theme => ({
-  container: {
-    display: 'flex',
-    flexWrap: 'wrap'
-  },
-  textField: {
-    marginLeft: theme.spacing(1),
-    marginRight: theme.spacing(1),
-    width: 200
-  }
-}));
+import { Container, Inputs } from './styles';
 
 const schema = Yup.object().shape({
   resource_field: Yup.string().required('Custom required message'),
@@ -27,33 +15,58 @@ const schema = Yup.object().shape({
 const options = [
   { id: 'react', title: 'ReactJS' },
   { id: 'node', title: 'NodeJS' },
-  { id: 'rn', title: 'React Native' }
+  { id: 'rn', title: 'Teste' }
 ];
 
+const PurpleSwitch = withStyles({
+  switchBase: {
+    color: 'rgba(81, 203, 238, 0.5)',
+    '&$checked': {
+      color: 'rgba(81, 203, 238, 1)'
+    },
+
+    '&$checked + $track': {
+      backgroundColor: 'rgba(81, 203, 238, 1)'
+    }
+  },
+  checked: {},
+  track: {}
+})(Switch);
+
 export default function New_Resource() {
-  const classes = useStyles();
+  const [state, setState] = React.useState({
+    checkedA: true
+  });
+
+  const handleChange = name => event => {
+    setState({ ...state, [name]: event.target.checked });
+  };
+
   function handleSubmit() {}
   return (
     <Container>
       <h1>New Resource</h1>
       <Form className="form" schema={schema} onSubmit={handleSubmit}>
-        <TextField
-          id="outlined-basic"
-          name="resource_field"
-          className={classes.textField}
-          label="Outlined"
-          margin="normal"
-          variant="outlined"
-          style={{ color: '#fff', borderColor: '#fff' }}
+        <Inputs>
+          <Select
+            name="resource_field"
+            placeholder="Resource field"
+            options={options}
+          />
+          <Input name="resource_tool" placeholder="Resource tool" />
+          <Input
+            name="resource_cost"
+            type="number"
+            placeholder="Resource cost"
+          />
+        </Inputs>
+
+        <PurpleSwitch
+          checked={state.checkedA}
+          onChange={handleChange('checkedA')}
+          value="checkedA"
         />
-        <br />
-        <Input name="resource_tool" />
-        <br />
-        <Input name="resource_cost" />
-        <br />
-        <Check name="task_able_resource" />
-        <br />
-        <Select name="tech" options={options} />
+
         <button type="submit">Send</button>
       </Form>
     </Container>
