@@ -15,13 +15,13 @@ const routes = new Router();
 routes.post('/users', UserController.store);
 routes.post('/sessions', SessionController.store);
 
-routes.use(authMiddleware);
-
-routes.put('/users', UserController.update);
-
 routes.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
+
+routes.use(authMiddleware);
+
+routes.put('/users', UserController.update);
 
 routes.get('/api/tasks', TaskController.index);
 routes.post('/api/tasks', TaskController.store);

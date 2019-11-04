@@ -19,6 +19,7 @@ export default function Routes() {
         <Switch>
             <Route path="/" exact component={SignIn} />
             <Route path="/register" component={SignUp} />
+            <Route path="/favicon.ico" exact component={SignIn} />
             {/* Lists */}
 
             <Route
