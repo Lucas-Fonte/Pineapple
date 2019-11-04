@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import Header from '../../../components/Header';
-import Toggle from '../../../components/Toggle';
 import { Wrapper, Background, Content } from './styles';
 
 export default function DefaultLayout({ children }) {
@@ -11,7 +10,6 @@ export default function DefaultLayout({ children }) {
       <Header />
       <Background />
       <Content>{children}</Content>
-      <Toggle />
     </Wrapper>
   );
 }

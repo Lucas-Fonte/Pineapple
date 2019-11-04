@@ -1,22 +1,24 @@
 module.exports = {
     up: (queryInterface, Sequelize) => {
-        return queryInterface.createTable('materials', {
+        return queryInterface.createTable('users', {
             id: {
                 type: Sequelize.INTEGER,
                 allowNull: false,
                 autoIncrement: true,
                 primaryKey: true
             },
-            raw_material: {
+            name: {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            raw_material_core: {
+            email: {
                 type: Sequelize.STRING,
-                allowNull: false
+                allowNull: false,
+                unique: true
             },
-            raw_material_core_cost: {
-                type: Sequelize.DOUBLE,
+            password_hash: {
+                type: Sequelize.STRING,
+                defaultValue: false,
                 allowNull: false
             },
             created_at: {
@@ -31,6 +33,6 @@ module.exports = {
     },
 
     down: queryInterface => {
-        return queryInterface.dropTable('materials');
+        return queryInterface.dropTable('users');
     }
 };

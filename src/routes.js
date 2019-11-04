@@ -1,15 +1,26 @@
 import { Router } from 'express';
 import path from 'path';
 
+import UserController from './app/controllers/UserController';
+import SessionController from './app/controllers/SessionController';
 import ProjectController from './app/controllers/ProjectController';
 import TaskController from './app/controllers/TaskController';
 import ResourceController from './app/controllers/ResourceController';
 import MaterialController from './app/controllers/MaterialController';
 
+import authMiddleware from './app/middlewares/auth';
+
 const routes = new Router();
 
+routes.post('/users', UserController.store);
+routes.post('/sessions', SessionController.store);
+
+routes.use(authMiddleware);
+
+routes.put('/users', UserController.update);
+
 routes.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
 routes.get('/api/tasks', TaskController.index);
