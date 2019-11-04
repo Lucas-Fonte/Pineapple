@@ -25,17 +25,25 @@ export default function Routes() {
                 key="list_projects"
                 path="/dashboard"
                 component={All_Projects}
+                isPrivate
             />
-            <Route key="list_tasks" path="/tasks" component={All_Tasks} />
+            <Route
+                key="list_tasks"
+                path="/tasks"
+                component={All_Tasks}
+                isPrivate
+            />
             <Route
                 key="list_materials"
                 path="/materials"
                 component={All_Materials}
+                isPrivate
             />
             <Route
                 key="list_resources"
                 path="/resources"
                 component={All_Resources}
+                isPrivate
             />
 
             {/* Details */}
@@ -43,16 +51,19 @@ export default function Routes() {
                 key="details_task"
                 path="/tasks/:taskId"
                 component={Details_Task}
+                isPrivate
             />
             <Route
                 key="details_material"
                 path="/materials/:resourceId"
                 component={Details_Resource}
+                isPrivate
             />
             <Route
                 key="details_resources"
                 path="/resources/:materialId"
                 component={Details_Material}
+                isPrivate
             />
         </Switch>
     );

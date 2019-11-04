@@ -24,8 +24,8 @@ export default function SingIn() {
     }
     return (
         <>
-            <img src={logo} alt="Meetapp" width="50" height="40" />
-
+            <img src={logo} alt="pineapple" width="130" height="150" />
+            <h1>Pineapple store</h1>
             <Form schema={schema} onSubmit={handleSubmit}>
                 <Input name="email" type="email" placeholder="Seu e-mail" />
                 <Input
