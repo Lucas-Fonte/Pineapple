@@ -170,7 +170,7 @@ export default function Dashboard() {
                                         size={24}
                                         color="#000"
                                         onClick={() =>
-                                            handleDeleteSubmit(product)
+                                            handleDeleteSubmit(product.id)
                                         }
                                         style={{
                                             marginLeft: 10,
