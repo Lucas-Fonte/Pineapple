@@ -92,10 +92,11 @@ export const ProductButtons = styled.aside`
 export const ProductList = styled.div`
     width: 170%;
     display: flex;
+    max-height: 500px;
     flex-direction: column;
     margin-right: 20px;
     animation: fade 0.6s;
-    overflow: auto;
+    overflow-y: scroll;
 
     h1 {
         color: #000;
