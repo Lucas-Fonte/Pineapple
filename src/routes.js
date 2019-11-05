@@ -18,9 +18,9 @@ routes.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
-routes.put('/api/users', UserController.update);
-
 routes.post('/api/products', ProductController.store);
+routes.put('/api/products', ProductController.update);
+routes.delete('/api/products', ProductController.delete);
 
 routes.use(authMiddleware);
 

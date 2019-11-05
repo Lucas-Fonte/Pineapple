@@ -39,9 +39,7 @@ export default function SingUp() {
 
                 <button type="submit">Criar conta</button>
                 <Link to="/">Já tenho login</Link>
-                <Link to="/dashboard" style={{ color: '#fff' }}>
-                    skip
-                </Link>
+                <Link to="/dashboard">Lista de produtos</Link>
             </Form>
         </>
     );

@@ -75,9 +75,22 @@ export const Content = styled.div`
             font-weight: bold;
             margin-top: 15px;
             font-size: 16px;
-            opacity: 0.8;
+            opacity: 0.9;
 
             &:hover {
+                color: #000;
+                opacity: 1;
+            }
+        }
+        a + a {
+            color: #525252;
+            font-weight: bold;
+            margin-top: 15px;
+            font-size: 16px;
+            opacity: 0.9;
+
+            &:hover {
+                color: #000;
                 opacity: 1;
             }
         }
