@@ -13,12 +13,7 @@ export default function Routes() {
             <Route path="/" exact component={SignIn} />
             <Route path="/register" component={SignUp} />
             {/* Lists */}
-            <Route
-                key="list_products"
-                path="/dashboard"
-                component={Products}
-                isPrivate
-            />
+            <Route key="list_products" path="/dashboard" component={Products} />
         </Switch>
     );
 }
