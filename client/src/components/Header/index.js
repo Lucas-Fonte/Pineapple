@@ -8,7 +8,7 @@ export default function Header() {
         <Container>
             <Content>
                 <nav>
-                    <Link to="/">
+                    <Link to="/dashboard">
                         <Logo>
                             <img
                                 src={logo}
