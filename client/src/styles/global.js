@@ -20,6 +20,11 @@ export default createGlobalStyle`
         overflow: hidden;
     }
 
+    ::-webkit-scrollbar {
+        width: 0px;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+    }
+
     body {
         -webkit-font-smoothing: antialiased;
     }

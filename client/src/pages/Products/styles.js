@@ -61,7 +61,7 @@ export const Container = styled.div`
 export const Content = styled.div`
     margin-top: 20px;
     max-width: 980px;
-    min-height: 500px;
+    min-height: 450px;
     font-size: 18px;
     display: flex;
     flex-direction: row;
@@ -92,11 +92,11 @@ export const ProductButtons = styled.aside`
 export const ProductList = styled.div`
     width: 170%;
     display: flex;
-    max-height: 500px;
+    max-height: 450px;
     flex-direction: column;
     margin-right: 20px;
     animation: fade 0.6s;
-    overflow-y: scroll;
+    overflow: hidden;
 
     h1 {
         color: #000;
@@ -107,6 +107,7 @@ export const ProductList = styled.div`
         grid-template-columns: repeat(1, 1fr);
         width: 100%;
         grid-gap: 15px;
+        overflow: auto;
     }
 
     @media only screen and (max-width: 600px) {
