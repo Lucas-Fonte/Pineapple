@@ -6,7 +6,7 @@ import SessionController from './app/controllers/SessionController';
 
 import ProductController from './app/controllers/ProductController';
 
-import authMiddleware from './app/middlewares/auth';
+// import authMiddleware from './app/middlewares/auth';
 
 const routes = new Router();
 
@@ -22,6 +22,6 @@ routes.put('/users', UserController.update);
 routes.get('/api/products', ProductController.index);
 routes.post('/api/products', ProductController.store);
 
-routes.use(authMiddleware);
+// routes.use(authMiddleware);
 
 export default routes;
