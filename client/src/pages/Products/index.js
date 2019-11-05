@@ -4,6 +4,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { MdModeEdit, MdDeleteForever, MdZoomIn } from 'react-icons/md';
+import { toast } from 'react-toastify';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
@@ -30,7 +31,6 @@ const schema = Yup.object().shape({
 
 export default function Dashboard() {
     const { signed } = store.getState().auth;
-
     const [products, setProducts] = useState([
         {
             product: ''
@@ -43,17 +43,6 @@ export default function Dashboard() {
         details: 'flex',
         edit: 'none'
     });
-
-    async function loadProducts() {
-        const response = await api.get('api/products');
-        const { data } = response;
-
-        setProducts(data);
-    }
-
-    useEffect(() => {
-        loadProducts();
-    }, []);
 
     function handleNew() {
         setExtra({
@@ -82,13 +71,52 @@ export default function Dashboard() {
         });
     }
 
-    function handleDelete(id) {
-        console.log(id);
+    async function handleNewSubmit(data) {
+        if (!signed) {
+            toast.error(
+                'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
+            );
+        }
+        await api.post('api/products', data);
+        toast.success('Produto criado');
     }
 
-    function handleSubmitNew() {
-        console.log('new');
+    async function handleEditSubmit(data) {
+        if (!signed) {
+            toast.error(
+                'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
+            );
+        }
+        await api.put(`api/products?id=1`, data);
+        toast.success('Produto atualizado');
     }
+
+    async function handleDeleteSubmit(id) {
+        if (!signed) {
+            toast.error(
+                'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
+            );
+        }
+        toast.error('Produto removido');
+        await api.delete(`api/products?id=${id}`);
+        console.log(`deleted ${id}`);
+    }
+
+    async function loadProducts() {
+        const response = await api.get('api/products');
+        const { data } = response;
+
+        setProducts(data);
+    }
+
+    useEffect(() => {
+        loadProducts();
+    }, [
+        () => {
+            handleDeleteSubmit;
+        }
+    ]);
+
     return (
         <Container>
             <header>
@@ -134,7 +162,9 @@ export default function Dashboard() {
                                     <MdDeleteForever
                                         size={24}
                                         color="#000"
-                                        onClick={() => handleDelete(product.id)}
+                                        onClick={() =>
+                                            handleDeleteSubmit(product.id)
+                                        }
                                         style={{
                                             marginLeft: 10,
                                             cursor: 'pointer'
@@ -148,7 +178,7 @@ export default function Dashboard() {
                 <ProductExtra>
                     <ProductNew display={extra.new}>
                         <h1>Novo</h1>
-                        <Form schema={schema} onSubmit={handleSubmitNew}>
+                        <Form schema={schema} onSubmit={handleNewSubmit}>
                             <Input
                                 name="product"
                                 type="string"
@@ -172,7 +202,7 @@ export default function Dashboard() {
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
                         <h1>Editar</h1>
-                        <Form schema={schema} onSubmit={handleSubmitNew}>
+                        <Form schema={schema} onSubmit={handleEditSubmit}>
                             <Input
                                 name="product"
                                 type="string"
