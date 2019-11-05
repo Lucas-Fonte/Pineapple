@@ -4,6 +4,8 @@
 import React, { useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { MdModeEdit, MdDeleteForever, MdZoomIn } from 'react-icons/md';
+import { Form, Input } from '@rocketseat/unform';
+import * as Yup from 'yup';
 
 import {
     Container,
@@ -21,13 +23,24 @@ import Card from '../../components/Card';
 import api from '../../services/api';
 import { store } from '../../store';
 
+const schema = Yup.object().shape({
+    product: Yup.string().required('Name is required'),
+    product_detail: Yup.string().required('Detail is required')
+});
+
 export default function Dashboard() {
     const { signed } = store.getState().auth;
 
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState([
+        {
+            product: ''
+        }
+    ]);
+
     const [extra, setExtra] = useState({
+        id: 0,
         new: 'none',
-        details: 'block',
+        details: 'flex',
         edit: 'none'
     });
 
@@ -44,29 +57,38 @@ export default function Dashboard() {
 
     function handleNew() {
         setExtra({
-            new: 'block',
+            id: 0,
+            new: 'flex',
             details: 'none',
             edit: 'none'
         });
     }
 
-    function handleDetail() {
+    function handleEdit(id) {
         setExtra({
+            id,
             new: 'none',
-            details: 'block',
+            details: 'none',
+            edit: 'flex'
+        });
+    }
+
+    function handleDetail(id) {
+        setExtra({
+            id,
+            new: 'none',
+            details: 'flex',
             edit: 'none'
         });
     }
 
-    function handleEdit() {
-        setExtra({
-            new: 'none',
-            details: 'none',
-            edit: 'block'
-        });
+    function handleDelete(id) {
+        console.log(id);
     }
 
-    function handleDelete() {}
+    function handleSubmitNew() {
+        console.log('new');
+    }
     return (
         <Container>
             <header>
@@ -94,7 +116,7 @@ export default function Dashboard() {
                                     <MdModeEdit
                                         size={24}
                                         color="#000"
-                                        onClick={handleDetail}
+                                        onClick={() => handleEdit(product.id)}
                                         style={{
                                             marginLeft: 10,
                                             cursor: 'pointer'
@@ -103,7 +125,7 @@ export default function Dashboard() {
                                     <MdZoomIn
                                         size={24}
                                         color="#000"
-                                        onClick={handleEdit}
+                                        onClick={() => handleDetail(product.id)}
                                         style={{
                                             marginLeft: 10,
                                             cursor: 'pointer'
@@ -112,7 +134,7 @@ export default function Dashboard() {
                                     <MdDeleteForever
                                         size={24}
                                         color="#000"
-                                        onClick={handleDelete}
+                                        onClick={() => handleDelete(product.id)}
                                         style={{
                                             marginLeft: 10,
                                             cursor: 'pointer'
@@ -126,12 +148,44 @@ export default function Dashboard() {
                 <ProductExtra>
                     <ProductNew display={extra.new}>
                         <h1>Novo</h1>
+                        <Form schema={schema} onSubmit={handleSubmitNew}>
+                            <Input
+                                name="product"
+                                type="string"
+                                placeholder="Nome do produto"
+                            />
+                            <Input
+                                name="product_detail"
+                                type="string"
+                                placeholder="Descrição"
+                            />
+
+                            <button type="submit">Enviar</button>
+                        </Form>
                     </ProductNew>
                     <ProductDetails display={extra.details}>
                         <h1>Detalhes</h1>
+                        <span>{products[0].product}</span>
+                        <span>{products[0].product}</span>
+                        <span>{products[0].product}</span>
+                        <span>{products[0].product}</span>
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
                         <h1>Editar</h1>
+                        <Form schema={schema} onSubmit={handleSubmitNew}>
+                            <Input
+                                name="product"
+                                type="string"
+                                placeholder="Nome do produto"
+                            />
+                            <Input
+                                name="product_detail"
+                                type="string"
+                                placeholder="Descrição"
+                            />
+
+                            <button type="submit">Enviar</button>
+                        </Form>
                     </ProductEdit>
                 </ProductExtra>
             </Content>

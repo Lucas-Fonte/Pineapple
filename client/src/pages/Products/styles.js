@@ -128,6 +128,7 @@ export const ProductList = styled.div`
 export const ProductExtra = styled.div`
     width: 100%;
     display: flex;
+    flex-direction: column;
     padding: 20px;
     background: #fff;
     border-radius: 8px;
@@ -135,12 +136,66 @@ export const ProductExtra = styled.div`
     @media only screen and (max-width: 600px) {
         margin-top: 10px;
     }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        margin-top: 30px;
+
+        input {
+            background: rgba(0, 0, 0, 0.6);
+            border: 0;
+            border-radius: 4px;
+            height: 44px;
+            padding: 0 15px;
+            color: #fff;
+            margin: 0 0 10px;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.7);
+            }
+
+            :after {
+                background: rgba(0, 0, 0, 0.3);
+                border: 0;
+                border-radius: 4px;
+                height: 44px;
+                padding: 0 15px;
+                color: #fff;
+                margin: 0 0 10px;
+            }
+        }
+
+        span {
+            color: #0095ff;
+            align-self: flex-start;
+            margin: 0 0 10px;
+            font-weight: bold;
+        }
+
+        button {
+            margin: 5px 0 0;
+            height: 44px;
+            background: #0095ff;
+            font-weight: bold;
+            color: #fff;
+            border: 0;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background 0.2s;
+
+            &:hover {
+                background: ${darken(0.05, '#0095ff')};
+            }
+        }
+    }
 `;
 
 export const ProductNew = styled.div.attrs(props => ({
     display: props.display
 }))`
     display: ${props => props.display};
+    flex-direction: column;
     animation: fade 0.6s;
     h1 {
         color: #000;
@@ -159,7 +214,9 @@ export const ProductDetails = styled.div.attrs(props => ({
     display: props.display
 }))`
     display: ${props => props.display};
+    flex-direction: column;
     animation: fade 0.6s;
+
     h1 {
         color: #000;
     }
@@ -177,6 +234,7 @@ export const ProductEdit = styled.div.attrs(props => ({
     display: props.display
 }))`
     display: ${props => props.display};
+    flex-direction: column;
     animation: fade 0.6s;
     h1 {
         color: #000;
