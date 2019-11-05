@@ -38,6 +38,9 @@ export default function SingIn() {
                     {loading ? 'Carregando...' : 'Acessar'}
                 </button>
                 <Link to="/register">Criar conta gratuita</Link>
+                <Link to="/dashboard" style={{ color: '#fff' }}>
+                    skip
+                </Link>
             </Form>
         </>
     );

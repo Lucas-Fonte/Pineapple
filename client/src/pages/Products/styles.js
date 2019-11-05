@@ -95,6 +95,7 @@ export const ProductList = styled.div`
     flex-direction: column;
     margin-right: 20px;
     animation: fade 0.6s;
+    overflow: auto;
 
     h1 {
         color: #000;

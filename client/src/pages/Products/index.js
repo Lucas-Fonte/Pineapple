@@ -19,8 +19,11 @@ import {
 
 import Card from '../../components/Card';
 import api from '../../services/api';
+import { store } from '../../store';
 
 export default function Dashboard() {
+    const { signed } = store.getState().auth;
+
     const [products, setProducts] = useState([]);
     const [extra, setExtra] = useState({
         new: 'none',

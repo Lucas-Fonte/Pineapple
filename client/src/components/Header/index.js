@@ -25,7 +25,7 @@ export default function Header() {
                     <Profile>
                         <div>
                             <strong>Lucas</strong>
-                            <Link to="/profile">Meu Perfil</Link>
+                            <Link to="/">Meu Perfil</Link>
                         </div>
                     </Profile>
                 </aside>
