@@ -44,6 +44,10 @@ export default function Dashboard() {
         edit: 'none'
     });
 
+    const [created, setCreated] = useState(0);
+    const [updated, setUpdated] = useState(0);
+    const [deleted, setDeleted] = useState(0);
+
     function handleNew() {
         setExtra({
             id: 0,
@@ -79,6 +83,7 @@ export default function Dashboard() {
         }
         await api.post('api/products', data);
         toast.success('Produto criado');
+        setCreated(created + 1);
     }
 
     async function handleEditSubmit(data) {
@@ -89,6 +94,7 @@ export default function Dashboard() {
         }
         await api.put(`api/products?id=1`, data);
         toast.success('Produto atualizado');
+        setUpdated(updated + 1);
     }
 
     async function handleDeleteSubmit(id) {
@@ -99,7 +105,7 @@ export default function Dashboard() {
         }
         toast.error('Produto removido');
         await api.delete(`api/products?id=${id}`);
-        console.log(`deleted ${id}`);
+        setDeleted(deleted + 1);
     }
 
     async function loadProducts() {
@@ -111,11 +117,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         loadProducts();
-    }, [
-        () => {
-            handleDeleteSubmit;
-        }
-    ]);
+    }, [created, updated, deleted]);
 
     return (
         <Container>
