@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container, Content, Profile } from './styles';
+import { Container, Content, Profile, Logo } from './styles';
+import logo from '../../assets/logo.png';
 
 export default function Header() {
     return (
@@ -8,20 +9,24 @@ export default function Header() {
             <Content>
                 <nav>
                     <Link to="/">
-                        <h1>factorello.</h1>
+                        <Logo>
+                            <img
+                                src={logo}
+                                alt="pineapple"
+                                width="50"
+                                height="40"
+                            />
+                            <h1>Pineapple</h1>
+                        </Logo>
                     </Link>
                 </nav>
 
                 <aside>
                     <Profile>
                         <div>
-                            <strong>Confetti</strong>
+                            <strong>Lucas</strong>
                             <Link to="/profile">Meu Perfil</Link>
                         </div>
-                        <img
-                            alt="user"
-                            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQ1NZ9j23-MqH_HlZMc81olN4WCzgJ8OgzJ93rUHY5HNJVN6jM&s"
-                        />
                     </Profile>
                 </aside>
             </Content>

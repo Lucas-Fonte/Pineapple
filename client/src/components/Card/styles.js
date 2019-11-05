@@ -8,18 +8,31 @@ export const Container = styled.li`
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2),
         0 2px 5px 0 rgba(73, 72, 72, 0.02);
     list-style-type: none;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 4px;
+    padding: 20px;
+    margin-bottom: 10px;
+    border-radius: 8px;
 
-    div {
+    .ProductContext {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        width: 100%;
         margin-left: 20px;
+        justify-content: space-between;
+        align-items: center;
+
+        @media only screen and (max-width: 600px) {
+            flex-direction: column;
+        }
+
+        span {
+            color: #000;
+            font-size: 12px;
+            margin-left: 10px;
+        }
     }
     img {
-        width: 45px;
-        height: 45px;
-        border-radius: 30px;
+        width: 70px;
+        height: 70px;
+        border-radius: 70px;
     }
 `;

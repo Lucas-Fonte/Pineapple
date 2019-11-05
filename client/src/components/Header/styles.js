@@ -49,14 +49,15 @@ export const Profile = styled.div`
             color: #fff;
         }
     }
-    img {
-        vertical-align: middle;
-        width: 35px;
-        height: 35px;
-        border-radius: 50%;
-    }
 `;
 
-export const Toggle = styled.div`
-    cursor: pointer;
+export const Logo = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    h1 {
+        margin-left: 5px;
+    }
 `;

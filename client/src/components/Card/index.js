@@ -1,3 +1,4 @@
+/* eslint-disable react/forbid-prop-types */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Container } from './styles';
@@ -6,14 +7,14 @@ export default function Card({ children }) {
     return (
         <Container>
             <img
-                alt="beach"
-                src="https://img2.10bestmedia.com/Images/Photos/352450/GettyImages-913753556_54_990x660.jpg"
+                alt="watermelon"
+                src="https://static.seattletimes.com/wp-content/uploads/2017/07/7b4c85c2-6687-11e7-8665-356bf84600f6-1560x1040.jpg"
             />
-            <div>{children}</div>
+            <div className="ProductContext">{children}</div>
         </Container>
     );
 }
 
 Card.propTypes = {
-    children: PropTypes.element.isRequired
+    children: PropTypes.array.isRequired
 };
