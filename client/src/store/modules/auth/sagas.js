@@ -8,7 +8,7 @@ export function* signIn({ payload }) {
     try {
         const { email, password } = payload;
 
-        const response = yield call(api.post, 'sessions', {
+        const response = yield call(api.post, 'api/sessions', {
             email,
             password
         });
@@ -28,7 +28,7 @@ export function* signUp({ payload }) {
     try {
         const { name, email, password } = payload;
 
-        yield call(api.post, 'users', {
+        yield call(api.post, 'api/users', {
             name,
             email,
             password
