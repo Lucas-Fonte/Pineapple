@@ -39,6 +39,8 @@ export default function Dashboard() {
 
     const [extra, setExtra] = useState({
         id: 0,
+        product: 'Sem produto',
+        product_detail: 'Sem detalhes',
         new: 'none',
         details: 'flex',
         edit: 'none'
@@ -50,25 +52,28 @@ export default function Dashboard() {
 
     function handleNew() {
         setExtra({
-            id: 0,
             new: 'flex',
             details: 'none',
             edit: 'none'
         });
     }
 
-    function handleEdit(id) {
+    function handleEdit({ id, product, product_detail }) {
         setExtra({
             id,
+            product,
+            product_detail,
             new: 'none',
             details: 'none',
             edit: 'flex'
         });
     }
 
-    function handleDetail(id) {
+    function handleDetail({ id, product, product_detail }) {
         setExtra({
             id,
+            product,
+            product_detail,
             new: 'none',
             details: 'flex',
             edit: 'none'
@@ -146,7 +151,7 @@ export default function Dashboard() {
                                     <MdModeEdit
                                         size={24}
                                         color="#000"
-                                        onClick={() => handleEdit(product.id)}
+                                        onClick={() => handleEdit(product)}
                                         style={{
                                             marginLeft: 10,
                                             cursor: 'pointer'
@@ -155,7 +160,7 @@ export default function Dashboard() {
                                     <MdZoomIn
                                         size={24}
                                         color="#000"
-                                        onClick={() => handleDetail(product.id)}
+                                        onClick={() => handleDetail(product)}
                                         style={{
                                             marginLeft: 10,
                                             cursor: 'pointer'
@@ -165,7 +170,7 @@ export default function Dashboard() {
                                         size={24}
                                         color="#000"
                                         onClick={() =>
-                                            handleDeleteSubmit(product.id)
+                                            handleDeleteSubmit(product)
                                         }
                                         style={{
                                             marginLeft: 10,
@@ -197,10 +202,8 @@ export default function Dashboard() {
                     </ProductNew>
                     <ProductDetails display={extra.details}>
                         <h1>Detalhes</h1>
-                        <span>{products[0].product}</span>
-                        <span>{products[0].product}</span>
-                        <span>{products[0].product}</span>
-                        <span>{products[0].product}</span>
+                        <span>{extra.product}</span>
+                        <span>{extra.product_detail}</span>
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
                         <h1>Editar</h1>
@@ -208,12 +211,12 @@ export default function Dashboard() {
                             <Input
                                 name="product"
                                 type="string"
-                                placeholder="Nome do produto"
+                                placeholder={extra.product}
                             />
                             <Input
                                 name="product_detail"
                                 type="string"
-                                placeholder="Descrição"
+                                placeholder={extra.product_detail}
                             />
 
                             <button type="submit">Enviar</button>
