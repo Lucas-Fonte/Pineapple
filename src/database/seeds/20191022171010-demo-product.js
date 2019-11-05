@@ -4,8 +4,8 @@ module.exports = {
             'products',
             [
                 {
-                    product: 'AGENDA',
-                    product_detail: 'CLASSICA',
+                    product: 'Melancia',
+                    product_detail: 'vermelha',
                     created_at: new Date(),
                     updated_at: new Date()
                 }
