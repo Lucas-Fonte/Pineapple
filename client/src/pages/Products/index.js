@@ -29,11 +29,19 @@ const schema = Yup.object().shape({
     product_detail: Yup.string().required('Detail is required')
 });
 
+function longStringsHandler(string) {
+    if (string.length > 8) {
+        return `${string.substr(0, 8)}...`;
+    }
+    return string;
+}
+
 export default function Dashboard() {
     const { signed } = store.getState().auth;
     const [products, setProducts] = useState([
         {
-            product: ''
+            product: '',
+            product_detail: ''
         }
     ]);
 
@@ -144,7 +152,11 @@ export default function Dashboard() {
                                 <ProductText>
                                     <span>{product.id}</span>
                                     <span>{product.product}</span>
-                                    <span>{product.product_detail}</span>
+                                    <span>
+                                        {`${longStringsHandler(
+                                            product.product_detail
+                                        )}`}
+                                    </span>
                                     <span>{product.created_at}</span>
                                 </ProductText>
                                 <ProductButtons>
