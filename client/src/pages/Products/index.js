@@ -53,6 +53,8 @@ export default function Dashboard() {
         id: 0,
         product: 'Sem produto',
         product_detail: 'Sem detalhes',
+        created_at: '00',
+        rate: 0,
         new: 'none',
         details: 'flex',
         edit: 'none'
@@ -71,22 +73,26 @@ export default function Dashboard() {
         });
     }
 
-    function handleEdit({ id, product, product_detail }) {
+    function handleEdit({ id, product, product_detail, created_at, rate }) {
         setExtra({
             id,
             product,
             product_detail,
+            created_at,
+            rate,
             new: 'none',
             details: 'none',
             edit: 'flex'
         });
     }
 
-    function handleDetail({ id, product, product_detail }) {
+    function handleDetail({ id, product, product_detail, created_at, rate }) {
         setExtra({
             id,
             product,
             product_detail,
+            created_at,
+            rate,
             new: 'none',
             details: 'flex',
             edit: 'none'
@@ -104,8 +110,7 @@ export default function Dashboard() {
             );
         }
         console.log(data);
-        console.log(rating);
-        // await api.post('api/products', data);
+        await api.post('api/products', data);
         toast.success('Produto criado');
         setCreated(created + 1);
     }
@@ -241,6 +246,8 @@ export default function Dashboard() {
                         />
                         <span>{extra.product}</span>
                         <span>{extra.product_detail}</span>
+                        <span>{extra.created_at}</span>
+                        <span>Rate: {extra.rate}</span>
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
                         <h1>Editar</h1>
