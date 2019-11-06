@@ -6,13 +6,14 @@ export const Container = styled.div`
     max-height: 600px;
     padding: 15px;
     margin: 50px auto;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     animation: fade 0.6s;
     overflow: hidden;
 
     @media only screen and (max-width: 600px) {
-        max-height: 100vh;
+        min-height: 100vh;
         margin-bottom: 10px;
     }
 
@@ -68,7 +69,6 @@ export const Container = styled.div`
 export const Content = styled.div`
     margin-top: 20px;
     max-width: 980px;
-    max-height: 200%;
     font-size: 18px;
     display: flex;
     flex-direction: row;
@@ -135,7 +135,7 @@ export const ProductList = styled.div`
 
 export const ProductExtra = styled.div`
     width: 100%;
-    min-height: 500px;
+    min-height: 400px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -143,7 +143,7 @@ export const ProductExtra = styled.div`
     border-radius: 8px;
 
     @media only screen and (max-width: 600px) {
-        min-height: 600px;
+        min-height: 620px;
         margin-top: 10px;
     }
 
@@ -269,11 +269,19 @@ export const ProductEdit = styled.div.attrs(props => ({
     }
 `;
 
-export const RatingArea = styled.div`
+export const Footer = styled.div`
+    margin-top: 10px;
     display: flex;
-    flex-direction: row;
-    margin-bottom: -15px;
-    label {
-        flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #0095ff;
+    width: 100%;
+    height: 50px;
+
+    a {
+        margin-left: 15px;
     }
 `;

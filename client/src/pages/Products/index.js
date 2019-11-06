@@ -2,11 +2,12 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-array-index-key */
 import React, { useState, useEffect } from 'react';
-import { FaPlus } from 'react-icons/fa';
+import { FaPlus, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdModeEdit, MdDeleteForever, MdZoomIn } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import { Form, Input, Textarea, Check } from '@rocketseat/unform';
+import { Form, Input, Textarea } from '@rocketseat/unform';
 import * as Yup from 'yup';
+import StarRatings from 'react-star-ratings';
 
 import {
     Container,
@@ -18,7 +19,7 @@ import {
     ProductEdit,
     ProductDetails,
     ProductText,
-    RatingArea
+    Footer
 } from './styles';
 
 import Card from '../../components/Card';
@@ -27,7 +28,8 @@ import { store } from '../../store';
 
 const schema = Yup.object().shape({
     product: Yup.string().required('Name is required'),
-    product_detail: Yup.string().required('Detail is required')
+    product_detail: Yup.string().required('Detail is required'),
+    rating: Yup.number().required('Rating is required')
 });
 
 function longStringsHandler(string) {
@@ -59,32 +61,7 @@ export default function Dashboard() {
     const [created, setCreated] = useState(0);
     const [updated, setUpdated] = useState(0);
     const [deleted, setDeleted] = useState(0);
-    const [rating, setRating] = useState([
-        {
-            rate: 0,
-            disabled: false
-        },
-        {
-            rate: 1,
-            disabled: false
-        },
-        {
-            rate: 2,
-            disabled: false
-        },
-        {
-            rate: 3,
-            disabled: false
-        },
-        {
-            rate: 4,
-            disabled: false
-        },
-        {
-            rate: 5,
-            disabled: false
-        }
-    ]);
+    const [rating, setRating] = useState();
 
     function handleNew() {
         setExtra({
@@ -116,13 +93,19 @@ export default function Dashboard() {
         });
     }
 
+    function handleRating(rate) {
+        setRating(rate);
+    }
+
     async function handleNewSubmit(data) {
         if (!signed) {
             toast.error(
                 'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
             );
         }
-        await api.post('api/products', data);
+        console.log(data);
+        console.log(rating);
+        // await api.post('api/products', data);
         toast.success('Produto criado');
         setCreated(created + 1);
     }
@@ -236,16 +219,16 @@ export default function Dashboard() {
                                 type="string"
                                 placeholder="Descrição"
                             />
-                            <RatingArea>
-                                {rating.map(rate => (
-                                    <Check
-                                        key={rate.rate}
-                                        name="rating"
-                                        label={rate.rate}
-                                        disabled={rate.disabled}
-                                    />
-                                ))}
-                            </RatingArea>
+                            <StarRatings
+                                rating={rating}
+                                starRatedColor="#0095ff"
+                                starHoverColor="#0095ff"
+                                starDimension="30px"
+                                starSpacing="4px"
+                                changeRating={handleRating}
+                                numberOfStars={5}
+                                name="rating"
+                            />
 
                             <button type="submit">Criar</button>
                         </Form>
@@ -276,23 +259,38 @@ export default function Dashboard() {
                                 type="string"
                                 placeholder={extra.product_detail}
                             />
-
-                            <RatingArea>
-                                {rating.map(rate => (
-                                    <Check
-                                        key={rate.rate}
-                                        name="rating"
-                                        label={rate.rate}
-                                        disabled={rate.disabled}
-                                    />
-                                ))}
-                            </RatingArea>
+                            <StarRatings
+                                rating={rating}
+                                starRatedColor="#0095ff"
+                                starHoverColor="#0095ff"
+                                starDimension="30px"
+                                starSpacing="4px"
+                                changeRating={handleRating}
+                                numberOfStars={5}
+                                name="rating"
+                            />
 
                             <button type="submit">Atualizar</button>
                         </Form>
                     </ProductEdit>
                 </ProductExtra>
             </Content>
+            <Footer>
+                <a
+                    href="https://github.com/Lucas-Fonte/Pineapple"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    <FaGithub color="#fff" size="20px" />
+                </a>
+                <a
+                    href="https://www.linkedin.com/in/lucas-fonte-02b03a164/"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                >
+                    <FaLinkedin color="#fff" size="20px" />
+                </a>
+            </Footer>
         </Container>
     );
 }
