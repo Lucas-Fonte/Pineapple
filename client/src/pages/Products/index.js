@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { MdModeEdit, MdDeleteForever, MdZoomIn } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import { Form, Input, Textarea } from '@rocketseat/unform';
+import { Form, Input, Textarea, Check } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
 import {
@@ -17,7 +17,8 @@ import {
     ProductNew,
     ProductEdit,
     ProductDetails,
-    ProductText
+    ProductText,
+    RatingArea
 } from './styles';
 
 import Card from '../../components/Card';
@@ -41,7 +42,8 @@ export default function Dashboard() {
     const [products, setProducts] = useState([
         {
             product: '',
-            product_detail: ''
+            product_detail: '',
+            rating: 3
         }
     ]);
 
@@ -57,6 +59,32 @@ export default function Dashboard() {
     const [created, setCreated] = useState(0);
     const [updated, setUpdated] = useState(0);
     const [deleted, setDeleted] = useState(0);
+    const [rating, setRating] = useState([
+        {
+            rate: 0,
+            disabled: false
+        },
+        {
+            rate: 1,
+            disabled: false
+        },
+        {
+            rate: 2,
+            disabled: false
+        },
+        {
+            rate: 3,
+            disabled: false
+        },
+        {
+            rate: 4,
+            disabled: false
+        },
+        {
+            rate: 5,
+            disabled: false
+        }
+    ]);
 
     function handleNew() {
         setExtra({
@@ -208,6 +236,16 @@ export default function Dashboard() {
                                 type="string"
                                 placeholder="Descrição"
                             />
+                            <RatingArea>
+                                {rating.map(rate => (
+                                    <Check
+                                        key={rate.rate}
+                                        name="rating"
+                                        label={rate.rate}
+                                        disabled={rate.disabled}
+                                    />
+                                ))}
+                            </RatingArea>
 
                             <button type="submit">Criar</button>
                         </Form>
@@ -238,6 +276,17 @@ export default function Dashboard() {
                                 type="string"
                                 placeholder={extra.product_detail}
                             />
+
+                            <RatingArea>
+                                {rating.map(rate => (
+                                    <Check
+                                        key={rate.rate}
+                                        name="rating"
+                                        label={rate.rate}
+                                        disabled={rate.disabled}
+                                    />
+                                ))}
+                            </RatingArea>
 
                             <button type="submit">Atualizar</button>
                         </Form>

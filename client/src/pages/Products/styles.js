@@ -268,3 +268,12 @@ export const ProductEdit = styled.div.attrs(props => ({
         }
     }
 `;
+
+export const RatingArea = styled.div`
+    display: flex;
+    flex-direction: row;
+    margin-bottom: -15px;
+    label {
+        flex-direction: row;
+    }
+`;

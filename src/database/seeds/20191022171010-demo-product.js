@@ -6,6 +6,7 @@ module.exports = {
                 {
                     product: 'Melancia',
                     product_detail: 'vermelha',
+                    rating: 4,
                     created_at: new Date(),
                     updated_at: new Date()
                 }
