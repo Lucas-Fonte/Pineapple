@@ -3,11 +3,18 @@ import { darken } from 'polished';
 
 export const Container = styled.div`
     max-width: 1000px;
+    max-height: 600px;
     padding: 15px;
     margin: 50px auto;
     display: flex;
     flex-direction: column;
     animation: fade 0.6s;
+    overflow: hidden;
+
+    @media only screen and (max-width: 600px) {
+        max-height: 100vh;
+        margin-bottom: 10px;
+    }
 
     header {
         display: flex;
@@ -61,10 +68,11 @@ export const Container = styled.div`
 export const Content = styled.div`
     margin-top: 20px;
     max-width: 980px;
-    min-height: 450px;
+    max-height: 200%;
     font-size: 18px;
     display: flex;
     flex-direction: row;
+    overflow: auto;
 
     @media only screen and (max-width: 600px) {
         flex-direction: column;
@@ -92,7 +100,7 @@ export const ProductButtons = styled.aside`
 export const ProductList = styled.div`
     width: 170%;
     display: flex;
-    max-height: 450px;
+    min-height: 500px;
     flex-direction: column;
     margin-right: 20px;
     animation: fade 0.6s;
@@ -127,6 +135,7 @@ export const ProductList = styled.div`
 
 export const ProductExtra = styled.div`
     width: 100%;
+    min-height: 500px;
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -134,13 +143,19 @@ export const ProductExtra = styled.div`
     border-radius: 8px;
 
     @media only screen and (max-width: 600px) {
+        min-height: 600px;
         margin-top: 10px;
+    }
+
+    img {
+        width: 100%;
+        border-radius: 8px;
     }
 
     form {
         display: flex;
         flex-direction: column;
-        margin-top: 30px;
+        margin-top: 20px;
 
         input {
             background: rgba(0, 0, 0, 0.6);
@@ -154,15 +169,19 @@ export const ProductExtra = styled.div`
             &::placeholder {
                 color: rgba(255, 255, 255, 0.7);
             }
+        }
 
-            :after {
-                background: rgba(0, 0, 0, 0.3);
-                border: 0;
-                border-radius: 4px;
-                height: 44px;
-                padding: 0 15px;
-                color: #fff;
-                margin: 0 0 10px;
+        textarea {
+            background: rgba(0, 0, 0, 0.6);
+            border: 0;
+            border-radius: 4px;
+            height: 60px;
+            padding: 15px;
+            color: #fff;
+            margin: 0 0 10px;
+
+            &::placeholder {
+                color: rgba(255, 255, 255, 0.7);
             }
         }
 
@@ -236,6 +255,7 @@ export const ProductEdit = styled.div.attrs(props => ({
     display: ${props => props.display};
     flex-direction: column;
     animation: fade 0.6s;
+
     h1 {
         color: #000;
     }

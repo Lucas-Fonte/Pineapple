@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { MdModeEdit, MdDeleteForever, MdZoomIn } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import { Form, Input } from '@rocketseat/unform';
+import { Form, Input, Textarea } from '@rocketseat/unform';
 import * as Yup from 'yup';
 
 import {
@@ -191,35 +191,43 @@ export default function Dashboard() {
                                 type="string"
                                 placeholder="Nome do produto"
                             />
-                            <Input
+                            <Textarea
                                 name="product_detail"
                                 type="string"
                                 placeholder="Descrição"
                             />
 
-                            <button type="submit">Enviar</button>
+                            <button type="submit">Criar</button>
                         </Form>
                     </ProductNew>
                     <ProductDetails display={extra.details}>
                         <h1>Detalhes</h1>
+                        <img
+                            alt="watermelon"
+                            src="https://static.seattletimes.com/wp-content/uploads/2017/07/7b4c85c2-6687-11e7-8665-356bf84600f6-1560x1040.jpg"
+                        />
                         <span>{extra.product}</span>
                         <span>{extra.product_detail}</span>
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
                         <h1>Editar</h1>
+                        <img
+                            alt="watermelon"
+                            src="https://static.seattletimes.com/wp-content/uploads/2017/07/7b4c85c2-6687-11e7-8665-356bf84600f6-1560x1040.jpg"
+                        />
                         <Form schema={schema} onSubmit={handleEditSubmit}>
                             <Input
                                 name="product"
                                 type="string"
                                 placeholder={extra.product}
                             />
-                            <Input
+                            <Textarea
                                 name="product_detail"
                                 type="string"
                                 placeholder={extra.product_detail}
                             />
 
-                            <button type="submit">Enviar</button>
+                            <button type="submit">Atualizar</button>
                         </Form>
                     </ProductEdit>
                 </ProductExtra>
