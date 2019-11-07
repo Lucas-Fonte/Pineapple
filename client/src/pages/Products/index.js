@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-array-index-key */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FaPlus, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdModeEdit, MdDeleteForever, MdZoomIn } from 'react-icons/md';
 import { toast } from 'react-toastify';
@@ -65,7 +65,13 @@ export default function Dashboard() {
     const [deleted, setDeleted] = useState(0);
     const [rating, setRating] = useState(0);
 
+    const extraRef = useRef();
+
     function handleNew() {
+        extraRef.current.scroll({
+            top: 400,
+            behavior: 'smooth'
+        });
         setExtra({
             new: 'flex',
             details: 'none',
@@ -74,6 +80,10 @@ export default function Dashboard() {
     }
 
     function handleEdit({ id, product, product_detail, created_at, rate }) {
+        extraRef.current.scroll({
+            top: 400,
+            behavior: 'smooth'
+        });
         setExtra({
             id,
             product,
@@ -87,6 +97,10 @@ export default function Dashboard() {
     }
 
     function handleDetail({ id, product, product_detail, created_at, rate }) {
+        extraRef.current.scroll({
+            top: 400,
+            behavior: 'smooth'
+        });
         setExtra({
             id,
             product,
@@ -159,7 +173,7 @@ export default function Dashboard() {
                 </aside>
             </header>
 
-            <Content>
+            <Content ref={extraRef}>
                 <ProductList>
                     <ul>
                         {products.map(product => (
