@@ -12,7 +12,7 @@ export const Container = styled.div`
     animation: fade 0.6s;
     overflow: auto;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 696px) {
         min-height: 100vh;
         margin-bottom: 10px;
     }
@@ -74,7 +74,7 @@ export const Content = styled.div`
     flex-direction: row;
     overflow: auto;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 696px) {
         flex-direction: column;
     }
 `;
@@ -92,7 +92,7 @@ export const ProductButtons = styled.aside`
     justify-content: center;
     flex-direction: row;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 696px) {
         margin-top: 20px;
     }
 `;
@@ -118,7 +118,7 @@ export const ProductList = styled.div`
         overflow: auto;
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 696px) {
         margin-right: 0;
         width: 100%;
     }
@@ -142,7 +142,7 @@ export const ProductExtra = styled.div`
     background: #fff;
     border-radius: 8px;
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 696px) {
         min-height: 620px;
         margin-top: 10px;
     }

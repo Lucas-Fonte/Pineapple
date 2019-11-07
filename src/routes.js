@@ -18,12 +18,14 @@ routes.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
 });
 
+routes.get('/dashboard', (req, res) => {
+    res.sendFile(path.join(__dirname, '..', 'client', 'build', 'index.html'));
+});
+
 routes.use(authMiddleware);
 
 routes.post('/api/products', ProductController.store);
 routes.put('/api/products', ProductController.update);
 routes.delete('/api/products', ProductController.delete);
-
-
 
 export default routes;
