@@ -54,7 +54,7 @@ export default function Dashboard() {
         product: 'Sem produto',
         product_detail: 'Sem detalhes',
         created_at: '00',
-        rate: 0,
+        rating: 0,
         new: 'none',
         details: 'flex',
         edit: 'none'
@@ -79,7 +79,7 @@ export default function Dashboard() {
         });
     }
 
-    function handleEdit({ id, product, product_detail, created_at, rate }) {
+    function handleEdit({ id, product, product_detail, created_at, rating }) {
         extraRef.current.scroll({
             top: 1000,
             behavior: 'smooth'
@@ -89,14 +89,14 @@ export default function Dashboard() {
             product,
             product_detail,
             created_at,
-            rate,
+            rating,
             new: 'none',
             details: 'none',
             edit: 'flex'
         });
     }
 
-    function handleDetail({ id, product, product_detail, created_at, rate }) {
+    function handleDetail({ id, product, product_detail, created_at, rating }) {
         extraRef.current.scroll({
             top: 1000,
             behavior: 'smooth'
@@ -106,7 +106,7 @@ export default function Dashboard() {
             product,
             product_detail,
             created_at,
-            rate,
+            rating,
             new: 'none',
             details: 'flex',
             edit: 'none'
@@ -271,7 +271,7 @@ export default function Dashboard() {
                         <span>{extra.product}</span>
                         <span>{extra.product_detail}</span>
                         <span>{extra.created_at}</span>
-                        <span>Rate: {extra.rate}</span>
+                        <span>{`Rate: ${extra.rating}`}</span>
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
                         <h1>Editar</h1>
