@@ -29,7 +29,7 @@ import { store } from '../../store';
 const schema = Yup.object().shape({
     product: Yup.string().required('Name is required'),
     product_detail: Yup.string().required('Detail is required'),
-    rating: Yup.number().required('Rating is required')
+    rating: Yup.number()
 });
 
 function longStringsHandler(string) {
@@ -63,7 +63,7 @@ export default function Dashboard() {
     const [created, setCreated] = useState(0);
     const [updated, setUpdated] = useState(0);
     const [deleted, setDeleted] = useState(0);
-    const [rating, setRating] = useState();
+    const [rating, setRating] = useState(0);
 
     function handleNew() {
         setExtra({
@@ -109,8 +109,7 @@ export default function Dashboard() {
                 'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
             );
         }
-        console.log(data);
-        await api.post('api/products', data);
+        await api.post('api/products', { ...data, rating });
         toast.success('Produto criado');
         setCreated(created + 1);
     }
@@ -121,7 +120,7 @@ export default function Dashboard() {
                 'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
             );
         }
-        await api.put(`api/products?id=1`, data);
+        await api.put(`api/products?id=${extra.id}`, { ...data, rating });
         toast.success('Produto atualizado');
         setUpdated(updated + 1);
     }
@@ -167,11 +166,13 @@ export default function Dashboard() {
                             <Card key={product.id}>
                                 <ProductText>
                                     <span>{product.id}</span>
-                                    <span>{product.product}</span>
                                     <span>
-                                        {`${longStringsHandler(
+                                        {longStringsHandler(product.product)}
+                                    </span>
+                                    <span>
+                                        {longStringsHandler(
                                             product.product_detail
-                                        )}`}
+                                        )}
                                     </span>
                                     <span>{product.created_at}</span>
                                 </ProductText>
