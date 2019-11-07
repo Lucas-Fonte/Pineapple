@@ -117,15 +117,19 @@ export default function Dashboard() {
         setRating(rate);
     }
 
+    function handleImageClick() {
+        toast.warn('Apenas o admin pode alterar imagens');
+    }
     async function handleNewSubmit(data) {
         if (!signed) {
             toast.error(
                 'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
             );
+        } else {
+            await api.post('api/products', { ...data, rating });
+            toast.success('Produto criado');
+            setCreated(created + 1);
         }
-        await api.post('api/products', { ...data, rating });
-        toast.success('Produto criado');
-        setCreated(created + 1);
     }
 
     async function handleEditSubmit(data) {
@@ -133,10 +137,11 @@ export default function Dashboard() {
             toast.error(
                 'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
             );
+        } else {
+            await api.put(`api/products?id=${extra.id}`, { ...data, rating });
+            toast.success('Produto atualizado');
+            setUpdated(updated + 1);
         }
-        await api.put(`api/products?id=${extra.id}`, { ...data, rating });
-        toast.success('Produto atualizado');
-        setUpdated(updated + 1);
     }
 
     async function handleDeleteSubmit(id) {
@@ -144,10 +149,11 @@ export default function Dashboard() {
             toast.error(
                 'Apenas usuários cadastrados podem modificar, criar ou alterar produtos'
             );
+        } else {
+            toast.error('Produto removido');
+            await api.delete(`api/products?id=${id}`);
+            setDeleted(deleted + 1);
         }
-        toast.error('Produto removido');
-        await api.delete(`api/products?id=${id}`);
-        setDeleted(deleted + 1);
     }
 
     async function loadProducts() {
@@ -255,10 +261,13 @@ export default function Dashboard() {
                     </ProductNew>
                     <ProductDetails display={extra.details}>
                         <h1>Detalhes</h1>
-                        <img
-                            alt="watermelon"
-                            src="https://static.seattletimes.com/wp-content/uploads/2017/07/7b4c85c2-6687-11e7-8665-356bf84600f6-1560x1040.jpg"
-                        />
+                        <div onClick={handleImageClick}>
+                            <img
+                                alt="watermelon"
+                                src="https://static.seattletimes.com/wp-content/uploads/2017/07/7b4c85c2-6687-11e7-8665-356bf84600f6-1560x1040.jpg"
+                            />
+                        </div>
+
                         <span>{extra.product}</span>
                         <span>{extra.product_detail}</span>
                         <span>{extra.created_at}</span>
@@ -266,10 +275,12 @@ export default function Dashboard() {
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
                         <h1>Editar</h1>
-                        <img
-                            alt="watermelon"
-                            src="https://static.seattletimes.com/wp-content/uploads/2017/07/7b4c85c2-6687-11e7-8665-356bf84600f6-1560x1040.jpg"
-                        />
+                        <div onClick={handleImageClick}>
+                            <img
+                                alt="watermelon"
+                                src="https://static.seattletimes.com/wp-content/uploads/2017/07/7b4c85c2-6687-11e7-8665-356bf84600f6-1560x1040.jpg"
+                            />
+                        </div>
                         <Form schema={schema} onSubmit={handleEditSubmit}>
                             <Input
                                 name="product"

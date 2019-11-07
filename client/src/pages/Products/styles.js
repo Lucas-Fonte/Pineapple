@@ -10,7 +10,7 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     animation: fade 0.6s;
-    overflow: hidden;
+    overflow: auto;
 
     @media only screen and (max-width: 600px) {
         min-height: 100vh;
@@ -147,11 +147,6 @@ export const ProductExtra = styled.div`
         margin-top: 10px;
     }
 
-    img {
-        width: 100%;
-        border-radius: 8px;
-    }
-
     form {
         display: flex;
         flex-direction: column;
@@ -236,6 +231,25 @@ export const ProductDetails = styled.div.attrs(props => ({
     flex-direction: column;
     animation: fade 0.6s;
 
+    div {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 70px;
+            cursor: pointer;
+            opacity: 1;
+
+            :hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
     h1 {
         color: #000;
     }
@@ -255,6 +269,25 @@ export const ProductEdit = styled.div.attrs(props => ({
     display: ${props => props.display};
     flex-direction: column;
     animation: fade 0.6s;
+
+    div {
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img {
+            width: 100px;
+            height: 100px;
+            border-radius: 70px;
+            cursor: pointer;
+            opacity: 1;
+
+            :hover {
+                opacity: 0.8;
+            }
+        }
+    }
 
     h1 {
         color: #000;
