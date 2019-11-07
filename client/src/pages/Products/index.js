@@ -69,7 +69,7 @@ export default function Dashboard() {
 
     function handleNew() {
         extraRef.current.scroll({
-            top: 400,
+            top: 1000,
             behavior: 'smooth'
         });
         setExtra({
@@ -81,7 +81,7 @@ export default function Dashboard() {
 
     function handleEdit({ id, product, product_detail, created_at, rate }) {
         extraRef.current.scroll({
-            top: 400,
+            top: 1000,
             behavior: 'smooth'
         });
         setExtra({
@@ -98,7 +98,7 @@ export default function Dashboard() {
 
     function handleDetail({ id, product, product_detail, created_at, rate }) {
         extraRef.current.scroll({
-            top: 400,
+            top: 1000,
             behavior: 'smooth'
         });
         setExtra({
