@@ -5,6 +5,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { FaPlus, FaGithub, FaLinkedin } from 'react-icons/fa';
 import { MdModeEdit, MdDeleteForever, MdZoomIn } from 'react-icons/md';
 import { toast } from 'react-toastify';
+
+import { format } from 'date-fns';
 import { Form, Input, Textarea } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import StarRatings from 'react-star-ratings';
@@ -45,7 +47,8 @@ export default function Dashboard() {
         {
             product: '',
             product_detail: '',
-            rating: 3
+            rating: 3,
+            createdAt: ''
         }
     ]);
 
@@ -53,7 +56,7 @@ export default function Dashboard() {
         id: 0,
         product: 'Sem produto',
         product_detail: 'Sem detalhes',
-        created_at: '00',
+        createdAt: '01/01/0001',
         rating: 0,
         new: 'none',
         details: 'flex',
@@ -79,7 +82,7 @@ export default function Dashboard() {
         });
     }
 
-    function handleEdit({ id, product, product_detail, created_at, rating }) {
+    function handleEdit({ id, product, product_detail, createdAt, rating }) {
         extraRef.current.scroll({
             top: 1000,
             behavior: 'smooth'
@@ -88,7 +91,7 @@ export default function Dashboard() {
             id,
             product,
             product_detail,
-            created_at,
+            createdAt,
             rating,
             new: 'none',
             details: 'none',
@@ -96,7 +99,7 @@ export default function Dashboard() {
         });
     }
 
-    function handleDetail({ id, product, product_detail, created_at, rating }) {
+    function handleDetail({ id, product, product_detail, createdAt, rating }) {
         extraRef.current.scroll({
             top: 1000,
             behavior: 'smooth'
@@ -105,7 +108,7 @@ export default function Dashboard() {
             id,
             product,
             product_detail,
-            created_at,
+            createdAt,
             rating,
             new: 'none',
             details: 'flex',
@@ -194,7 +197,6 @@ export default function Dashboard() {
                                             product.product_detail
                                         )}
                                     </span>
-                                    <span>{product.created_at}</span>
                                 </ProductText>
                                 <ProductButtons>
                                     <MdModeEdit
@@ -270,7 +272,10 @@ export default function Dashboard() {
 
                         <span>{extra.product}</span>
                         <span>{extra.product_detail}</span>
-                        <span>{extra.created_at}</span>
+                        <span>{`Created at: ${format(
+                            new Date(extra.createdAt),
+                            'yyyy-MM-dd'
+                        )}`}</span>
                         <span>{`Rate: ${extra.rating}`}</span>
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
