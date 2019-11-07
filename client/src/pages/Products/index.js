@@ -273,7 +273,11 @@ export default function Dashboard() {
                         <span>{extra.product}</span>
                         <span>{extra.product_detail}</span>
                         <span>{`Created at: ${format(
-                            new Date(extra.createdAt),
+                            new Date(
+                                extra.createdAt
+                                    ? extra.createdAt
+                                    : '2019/01/01 00:00:00'
+                            ),
                             'yyyy-MM-dd'
                         )}`}</span>
                         <span>{`Rate: ${extra.rating}`}</span>
