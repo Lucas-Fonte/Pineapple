@@ -6,9 +6,7 @@ const urlsToCache = [
     '/static/js/bundle.js',
     '/static/js/main.chunk.js',
     '/static/js/1.chunk.js',
-    '/static/js/0.chunk.js',
-    '/css?family=Open+Sans',
-    '/icon?family=Material+Icons'
+    '/static/js/0.chunk.js'
 ];
 
 self.addEventListener('install', function(event) {
