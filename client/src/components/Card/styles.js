@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.li`
     display: flex;
     align-items: center;
+    max-height: 88px;
     flex-direction: row;
     background: #fff;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2),
