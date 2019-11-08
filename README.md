@@ -2,11 +2,11 @@
 
 Este é um exemplo de testes de deploy e ecommerce(PWA), pode ser encontrado [https://pineapple-store.herokuapp.com/].
 
-## Heroku vs (Firebase + ElephantSQL)
+## Heroku vs (Firebase + ElephantSQL ou Google Cloud SQL)
 
 Atualmente é utilizado Heroku para deploy da aplicação, por sua facilidade, dinamismo, além de possuir integração com os PostgreSQL e de visualização simples utilizando o Postbird.
 
-Entretanto outra possibilidade a ser considerada é a de utilizar o Firebase para deploy da aplicação e manter o PostgreSQL utilizando ElephantSQL.
+Entretanto outra possibilidade a ser considerada é a de utilizar o Firebase para deploy da aplicação e manter o PostgreSQL utilizando ElephantSQL ou Google Cloud SQL.
 
 Considerações: 
 - Deploy mais demorado
