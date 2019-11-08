@@ -1,4 +1,46 @@
-# Factorello.
-Project management software
+# Pineapple Store
 
-details to be added...
+Este é um exemplo de testes de deploy e ecommerce(PWA), pode ser encontrado [https://pineapple-store.herokuapp.com/].
+
+## Heroku vs (Firebase + ElephantSQL)
+
+Atualmente é utilizado Heroku para deploy da aplicação, por sua facilidade, dinamismo, além de possuir integração com os PostgreSQL e de visualização simples utilizando o Postbird.
+
+Entretanto outra possibilidade a ser considerada é a de utilizar o Firebase para deploy da aplicação e manter o PostgreSQL utilizando ElephantSQL.
+
+Considerações: 
+- Deploy mais demorado
+- Possibilidade de app nativo
+- Database e aplicação em diferentes plataformas
+- Firebase proporciona multiplas ferramentas
+- Considerar uso de Kubernetes
+- Firebase Hosting provisiona um certificado SSL
+- Facilita o deploy de PWAs
+
+
+## License
+Pineapple
+Pineapple é uma aplicação full-stack feita com NodeJS, ReactJS.
+
+MIT License
+
+License
+Copyright (c) [2019] [Pineapple-Store]
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

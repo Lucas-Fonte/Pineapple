@@ -186,7 +186,7 @@ export default function Dashboard() {
                 <ProductList>
                     <ul>
                         {products.map(product => (
-                            <Card key={product.id}>
+                            <Card key={product.id.toString()}>
                                 <ProductText>
                                     <span>{product.id}</span>
                                     <span>
