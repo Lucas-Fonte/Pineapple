@@ -2,6 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     padding: 0 20px;
+
+    @media only screen and (max-width: 696px) {
+        padding-top: 20px;
+    }
 `;
 
 export const Content = styled.div`
