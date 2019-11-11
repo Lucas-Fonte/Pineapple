@@ -246,7 +246,7 @@ export default function Dashboard() {
                 </ProductList>
                 <ProductExtra>
                     <ProductNew display={extra.new}>
-                        <h1>Novo</h1>
+                        <h2>Novo</h2>
                         <Form schema={schema} onSubmit={handleNewSubmit}>
                             <Input
                                 name="product"
@@ -273,7 +273,7 @@ export default function Dashboard() {
                         </Form>
                     </ProductNew>
                     <ProductDetails display={extra.details}>
-                        <h1>Detalhes</h1>
+                        <h2>Detalhes</h2>
                         <div onClick={handleImageClick}>
                             <img
                                 alt="watermelon"
@@ -294,7 +294,7 @@ export default function Dashboard() {
                         <span>{`Rate: ${extra.rating}`}</span>
                     </ProductDetails>
                     <ProductEdit display={extra.edit}>
-                        <h1>Editar</h1>
+                        <h2>Editar</h2>
                         <div onClick={handleImageClick}>
                             <img
                                 alt="watermelon"

@@ -10,7 +10,6 @@ export const Container = styled.div`
     display: flex;
     flex-direction: column;
     animation: fade 0.6s;
-    overflow: auto;
 
     @media only screen and (max-width: 696px) {
         min-height: 100vh;
@@ -70,12 +69,14 @@ export const Content = styled.div`
     margin-top: 20px;
     max-width: 980px;
     font-size: 18px;
+    max-height: 450px;
     display: flex;
     flex-direction: row;
     overflow: auto;
 
     @media only screen and (max-width: 696px) {
         flex-direction: column;
+        max-height: 600px;
     }
 `;
 
@@ -100,13 +101,13 @@ export const ProductButtons = styled.aside`
 export const ProductList = styled.div`
     width: 170%;
     display: flex;
-    min-height: 500px;
+    min-height: 450px;
     flex-direction: column;
     margin-right: 20px;
     animation: fade 0.6s;
     overflow: hidden;
 
-    h1 {
+    h2 {
         color: #000;
     }
 
@@ -143,7 +144,7 @@ export const ProductExtra = styled.div`
     border-radius: 8px;
 
     @media only screen and (max-width: 696px) {
-        min-height: 620px;
+        min-height: 450px;
         margin-top: 10px;
     }
 
@@ -156,7 +157,7 @@ export const ProductExtra = styled.div`
             background: rgba(0, 0, 0, 0.6);
             border: 0;
             border-radius: 4px;
-            height: 44px;
+            height: 38px;
             padding: 0 15px;
             color: #fff;
             margin: 0 0 10px;
@@ -211,7 +212,7 @@ export const ProductNew = styled.div.attrs(props => ({
     display: ${props => props.display};
     flex-direction: column;
     animation: fade 0.6s;
-    h1 {
+    h2 {
         color: #000;
     }
 
@@ -250,7 +251,7 @@ export const ProductDetails = styled.div.attrs(props => ({
         }
     }
 
-    h1 {
+    h2 {
         color: #000;
     }
     @keyframes fade {
@@ -289,7 +290,7 @@ export const ProductEdit = styled.div.attrs(props => ({
         }
     }
 
-    h1 {
+    h2 {
         color: #000;
     }
     @keyframes fade {
