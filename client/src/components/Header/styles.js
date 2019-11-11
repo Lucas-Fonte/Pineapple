@@ -65,3 +65,57 @@ export const Logo = styled.div`
         margin-left: 5px;
     }
 `;
+
+export const Notification = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    .icon {
+        transition: opacity 0.2s;
+
+        :hover {
+            opacity: 0.7;
+        }
+    }
+`;
+
+export const NotificationList = styled.ul.attrs(props => ({
+    display: props.display
+}))`
+    display: ${props => props.display};
+    flex-direction: column;
+
+    animation: fade 0.6s;
+    @keyframes fade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    li:first-of-type {
+        margin-top: 2px;
+        color: #fff;
+        border-top: 0;
+    }
+
+    li {
+        margin-top: 12px;
+        padding-top: 12px;
+        color: #fff;
+        border-top: 1px solid rgba(255, 255, 255, 0.8);
+    }
+
+    padding: 14px;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    margin-top: 25px;
+    margin-left: -105px;
+    width: 210px;
+    max-height: 300px;
+    position: fixed;
+    border-radius: 8px;
+    overflow: auto;
+`;

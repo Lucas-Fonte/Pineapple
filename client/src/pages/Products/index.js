@@ -41,6 +41,14 @@ function longStringsHandler(string) {
     return string;
 }
 
+async function createNotification(product, action) {
+    const notification = {
+        notification: `O produto ${product} foi ${action}`,
+        seen: false
+    };
+    await api.post('api/notifications', notification);
+}
+
 export default function Dashboard() {
     const { signed } = store.getState().auth;
     const [products, setProducts] = useState([
@@ -131,6 +139,7 @@ export default function Dashboard() {
         } else {
             await api.post('api/products', { ...data, rating });
             toast.success('Produto criado');
+            createNotification(data.product, 'criado');
             setCreated(created + 1);
         }
     }
@@ -143,6 +152,7 @@ export default function Dashboard() {
         } else {
             await api.put(`api/products?id=${extra.id}`, { ...data, rating });
             toast.success('Produto atualizado');
+            createNotification(data.product, 'alterado');
             setUpdated(updated + 1);
         }
     }
@@ -155,6 +165,7 @@ export default function Dashboard() {
         } else {
             toast.error('Produto removido');
             await api.delete(`api/products?id=${id}`);
+            createNotification(id, 'deletado');
             setDeleted(deleted + 1);
         }
     }
@@ -186,7 +197,7 @@ export default function Dashboard() {
                 <ProductList>
                     <ul>
                         {products.map(product => (
-                            <Card key={product.id.toString()}>
+                            <Card key={product.id}>
                                 <ProductText>
                                     <span>{product.id}</span>
                                     <span>

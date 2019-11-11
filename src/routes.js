@@ -3,7 +3,7 @@ import path from 'path';
 
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
-
+import NotificationController from './app/controllers/NotificationController';
 import ProductController from './app/controllers/ProductController';
 
 import authMiddleware from './app/middlewares/auth';
@@ -27,5 +27,8 @@ routes.use(authMiddleware);
 routes.post('/api/products', ProductController.store);
 routes.put('/api/products', ProductController.update);
 routes.delete('/api/products', ProductController.delete);
+
+routes.get('/api/notifications', NotificationController.index);
+routes.post('/api/notifications', NotificationController.store);
 
 export default routes;
