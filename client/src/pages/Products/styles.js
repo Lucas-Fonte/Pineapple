@@ -151,14 +151,14 @@ export const ProductExtra = styled.div`
     form {
         display: flex;
         flex-direction: column;
-        margin-top: 20px;
+        margin-top: 5px;
 
         input {
             background: rgba(0, 0, 0, 0.6);
             border: 0;
             border-radius: 4px;
             height: 38px;
-            padding: 0 15px;
+            padding: 0 10px;
             color: #fff;
             margin: 0 0 10px;
 
@@ -172,7 +172,7 @@ export const ProductExtra = styled.div`
             border: 0;
             border-radius: 4px;
             height: 60px;
-            padding: 15px;
+            padding: 10px;
             color: #fff;
             margin: 0 0 10px;
 
@@ -183,14 +183,15 @@ export const ProductExtra = styled.div`
 
         span {
             color: #0095ff;
+            font-size: 12px;
             align-self: flex-start;
             margin: 0 0 10px;
             font-weight: bold;
         }
 
         button {
-            margin: 5px 0 0;
-            height: 44px;
+            margin-top: 4px;
+            height: 38px;
             background: #0095ff;
             font-weight: bold;
             color: #fff;
@@ -239,8 +240,8 @@ export const ProductDetails = styled.div.attrs(props => ({
         justify-content: center;
 
         img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 70px;
             cursor: pointer;
             opacity: 1;
@@ -278,8 +279,8 @@ export const ProductEdit = styled.div.attrs(props => ({
         justify-content: center;
 
         img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 70px;
             cursor: pointer;
             opacity: 1;
