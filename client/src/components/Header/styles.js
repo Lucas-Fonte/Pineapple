@@ -96,7 +96,7 @@ export const NotificationList = styled.ul.attrs(props => ({
     }
 
     li:first-of-type {
-        margin-top: 2px;
+        margin-top: 0;
         color: #fff;
         border-top: 0;
     }
@@ -108,7 +108,7 @@ export const NotificationList = styled.ul.attrs(props => ({
         border-top: 1px solid rgba(255, 255, 255, 0.8);
     }
 
-    padding: 14px;
+    padding: 0 11px 8px 11px;
     background: rgba(0, 0, 0, 0.8);
     z-index: 1;
     margin-top: 25px;
