@@ -9,7 +9,8 @@
     "dev": "nodemon src/server.js",
     "both": "yarn && cd client && yarn",
     "pretest": "NODE_ENV=test sequelize db:migrate",
-    "test": "NODE_ENV=test jest"
+    "test": "NODE_ENV=test jest",
+    "posttest": "NODE_ENV=test sequelize db:migrate:undo:all"
   },
   "engines": {
     "node": "12.13.0",
