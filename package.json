@@ -8,7 +8,8 @@
     "heroku-postbuild": "cd client && yarn && yarn build && cd .. && yarn sequelize db:migrate && yarn sequelize db:seed:all",
     "dev": "nodemon src/server.js",
     "both": "yarn && cd client && yarn",
-    "test": "jest src/tests"
+    "pretest": "NODE_ENV=test sequelize db:migrate",
+    "test": "NODE_ENV=test jest"
   },
   "engines": {
     "node": "12.13.0",
@@ -21,7 +22,6 @@
     "dotenv": "^8.2.0",
     "eslint-plugin-jest": "^23.0.3",
     "express": "^4.17.1",
-    "jest": "^24.9.0",
     "jsonwebtoken": "^8.5.1",
     "multer": "^1.4.2",
     "pg": "^7.12.1",
@@ -31,15 +31,20 @@
     "sequelize-cli": "^5.5.1",
     "socket.io": "^2.3.0",
     "sucrase": "^3.10.1",
+    "win-node-env": "^0.4.0",
     "yup": "^0.27.0"
   },
   "devDependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "@types/jest": "^24.0.22",
     "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-prettier": "^3.1.1",
+    "jest": "^24.9.0",
     "nodemon": "^1.19.3",
-    "prettier": "^1.18.2"
+    "prettier": "^1.18.2",
+    "sqlite3": "^4.1.0"
   }
 }
