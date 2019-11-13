@@ -3,6 +3,13 @@
 Este é um exemplo de testes de deploy e ecommerce(PWA), pode ser encontrado https://pineapple-store.herokuapp.com/.
 
 ## Visuals
+#### SignIn da aplicação.
+
+![Meetapp](https://user-images.githubusercontent.com/53484547/67404562-f3bbb300-f589-11e9-88b2-43fe73df72c9.png "Meetapp Screenshot")
+
+#### Dashboard da aplicação.
+
+![Meetapp](https://user-images.githubusercontent.com/53484547/67404553-f1f1ef80-f589-11e9-810b-c19778ae4206.png "Meetapp Screenshot")
 
 ## Getting started
 
