@@ -1,6 +1,6 @@
 # Pineapple Store
 
-Este é um exemplo de testes de deploy e ecommerce(PWA), pode ser encontrado [https://pineapple-store.herokuapp.com/].
+Este é um exemplo de testes de deploy e ecommerce(PWA), pode ser encontrado https://pineapple-store.herokuapp.com/.
 
 ## Visuals
 
