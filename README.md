@@ -1,15 +1,19 @@
 # Pineapple Store
 
-Este é um exemplo de testes de deploy e ecommerce(PWA), pode ser encontrado https://pineapple-store.herokuapp.com/.
+Este é um exemplo de testes de deploy e ecommerce (PWA), pode ser encontrado https://pineapple-store.herokuapp.com/.
 
 ## Visuals
 #### SignIn da aplicação.
 
-![Meetapp](https://user-images.githubusercontent.com/53484547/67404562-f3bbb300-f589-11e9-88b2-43fe73df72c9.png "Meetapp Screenshot")
+![Pineapple](https://user-images.githubusercontent.com/53484547/68822417-9c33d300-066f-11ea-81d6-e2bbfa924e57.png "Pineapple Screenshot")
 
 #### Dashboard da aplicação.
 
-![Meetapp](https://user-images.githubusercontent.com/53484547/67404553-f1f1ef80-f589-11e9-810b-c19778ae4206.png "Meetapp Screenshot")
+![Pineapple](https://user-images.githubusercontent.com/53484547/68822414-9b02a600-066f-11ea-8a0a-bb2b22d0deb9.png "Pineapple  Screenshot")
+
+#### PWA.
+
+![Pineapple](blob:https://web.whatsapp.com/63d7cc9e-758b-4166-aea3-3e9e7afa6426 "Pineapple Gif")
 
 ## Getting started
 
@@ -37,16 +41,16 @@ Com o banco de dados configurado, basta criar uma *database* chamada 'meetapp', 
 Use um package manager, [yarn](https://yarnpkg.com/en/docs/install#mac-stable) ou [npm](https://www.npmjs.com/get-npm) , para instalar as dependências.
 
 ```bash
-cd backend
 yarn
 yarn sequelize db:migrate
-yarn start
+yarn sequelize db:seed:all
+yarn dev
 ```
 
 ```bash
-cd frontend
-yarn 
-yarn start
+cd client
+yarn
+yarn dev
 ```
 Tudo pronto para o gerenciamento de produtos.
 
