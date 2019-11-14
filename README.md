@@ -13,7 +13,7 @@ Este é um exemplo de testes de deploy e ecommerce (PWA), pode ser encontrado ht
 
 #### PWA.
 
-![Pineapple](blob:https://web.whatsapp.com/63d7cc9e-758b-4166-aea3-3e9e7afa6426 "Pineapple Gif")
+![Pineapple](https://user-images.githubusercontent.com/53484547/68823249-f6ce2e80-0671-11ea-8f00-d3d7281c6f9f.gif "Pineapple Gif")
 
 ## Getting started
 
@@ -34,7 +34,7 @@ Caso possua o [Docker](https://docs.docker.com/docker-for-mac/install/), uma op�
 ```
 Outra opção seria fazer o download direto do [postgres](https://www.postgresql.org/download/) e roda-lo com as mesmas credenciais.
 
-Com o banco de dados configurado, basta criar uma *database* chamada 'meetapp', ou como optar por chama-lá, lembrando sempre de alterar a variável no arquivo **.env**.
+Com o banco de dados configurado, basta criar uma *database* chamada 'pineapple', ou como optar por chama-lá, lembrando sempre de alterar as variáveis no arquivo **.env**.
 
 *(Versão 11 utilizada, pois a versão 12 apresentou problemas ao introduzir as migrations)*
 
